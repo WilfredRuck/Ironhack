@@ -1,0 +1,43 @@
+header{
+	font-family: serif;
+}
+.niceParagraph {
+	background-color: grey;
+	font-family: sans-serif;
+}
+
+#graphOnly {
+	background-color: orange;
+	font-family: fantasy;
+
+}
+
+body header {
+	background-color: rgb(0,100,200);
+}
+
+footer {
+  background-color: #444444;
+  padding: 30px 10px;
+  border-top: 5px solid white;
+  color: white;
+  font-size: 20px;
+  font-style: bold;
+  width: 100%;
+}
+
+#centerStuff {
+	text-align: center;
+}
+
+header:hover {
+    background-color: white;
+}
+
+#hoverStuff:hover{
+	background-color: blue
+}
+
+.floatedBox {
+	float:right;
+}

@@ -1,0 +1,11 @@
+<h1> My Favorite Pizza </h1>
+
+<p> After this you'll never eat any other pizza again </p>
+
+<ul>
+	<%@ingredients.each do |item| %>
+		<li>
+			Ingredient: <%=item%>
+		</li>
+		<%end%>
+</ul>

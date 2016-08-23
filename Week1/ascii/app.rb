@@ -1,0 +1,31 @@
+#app.rb
+require "sinatra"
+require "artii"
+
+
+get "/" do
+
+end
+
+get "/hello" do 
+	"frkfn"
+end
+
+
+
+get "/ascii/:word" do
+
+word_string = params[:word]
+
+
+the_ascifier = Artii::Base.new(:font => "doh")
+@new_word = the_ascifier.asciify(word_string)
+
+erb :asciii
+end
+
+
+
+ 
+
+
