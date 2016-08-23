@@ -7,11 +7,6 @@ get "/" do
 
 end
 
-get "/hello" do 
-	"fffrkfn"
-end
-
-
 
 get "/ascii/:word" do
 
