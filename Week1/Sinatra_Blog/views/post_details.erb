@@ -1,0 +1,17 @@
+<!-- views/post_details.erb -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!DOCTYPE html>
+<html>
+<h1>My Blog | Post Details</h1>
+<h2> Category : <%= @each_post.category %> </h2>
+<body>
+	<p>This post was made on <%= @each_post.date %> 
+					by <%= @each_post.author %> </p>
+	<p> <b> <%= @each_post.title %> </b> </p>
+				
+				
+		<%= @each_post.text %>
+		
+</body>
+</html>

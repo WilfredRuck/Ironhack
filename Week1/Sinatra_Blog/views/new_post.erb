@@ -1,0 +1,24 @@
+<!-- views/new_post.erb -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!DOCTYPE html>
+<html>
+<h1>My Blog | Create New Post</h1>
+<body>
+	<h2>
+		<form action ="/create_post" method ="POST">
+  		<p> <input type="text" name ="title" placeholder="Title of post"> </p>
+
+  		<p> <input type="text" name ="category" placeholder="Category of Post"> </p>
+
+  		<p> <input type="text" name ="name" placeholder="Type Your Name"> </p>
+	 	
+	 	<p> <input type="text" name ="date" placeholder="Year/Month/Date"></p>
+	 	
+	 	
+	 	<input type="text" name ="text" placeholder="Type post here...">
+  		
+  		<button type = "submit">Submit Post</button>
+	</h2>
+</body>
+</html>

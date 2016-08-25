@@ -15,18 +15,18 @@ end
 
 get "/" do
 	#Refers to views/home.erb
-	erb:home
+	erb :home
 end
 
 get "/about" do
 	#Refers to views/about.erb
-	erb:about
+	erb :about
 end
 
 get "/pizza" do
 	@ingredients = ["Cheese", "Dough", "Tomato Sauce",
 	"Pepperoni", "Sausage"]
-	erb:favorite_pizza 
+	erb :favorite_pizza 
 end
 
 
