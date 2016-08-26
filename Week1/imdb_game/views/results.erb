@@ -1,0 +1,22 @@
+<!-- views/home.erb -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<!DOCTYPE html>
+<html>
+<h1>Movie Game | Movie Selections</h1>
+<h2>
+<body>
+	<p> Which movie was SUPER dissapointing!? </p>
+	
+	<% @movies.each do |details| %>
+
+		<% if details.title.include?("Batman")%> 
+			<img src="<%= details.poster %>" width = "400" height = "400" onClick="alert('OH, YOU GENIUS YOU!')">
+		
+		<%else%>
+			<img src="<%= details.poster %>" width = "400" height = "400" onClick="alert('Nah')">
+		<%end%>
+	<% end %>
+
+</body>
+</html>
