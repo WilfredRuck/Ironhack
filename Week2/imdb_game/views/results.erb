@@ -6,11 +6,11 @@
 <h1>Movie Game | Movie Selections</h1>
 <h2>
 <body>
-	<p> Which movie was SUPER dissapointing!? </p>
+	<p> Which movie was the best!? </p>
 	
 	<% @movies.each do |details| %>
 
-		<% if details.title.include?("Batman")%> 
+		<% if details.title == (@the_chosen_one[0].title) %> 
 			<img src="<%= details.poster %>" width = "400" height = "400" onClick="alert('OH, YOU GENIUS YOU!')">
 		
 		<%else%>
