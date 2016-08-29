@@ -1,0 +1,32 @@
+h3 {
+	margin: 10px;
+}
+
+h3 .direction {
+	padding: 20%;
+}
+
+.box .direction {
+	background-color: blue;
+	border: 3px solid red;
+}
+
+#red .direction {
+	background-color: red;
+	border: 3px solid blue;
+}
+
+.green .direction{
+	background-color: green;
+	border: 3px solid yellow;
+}
+
+#top .direction {
+	position: top:350;
+	position: left:350;
+}
+
+#bottom .direction {
+	position: top:400;
+	position: left:500;
+}

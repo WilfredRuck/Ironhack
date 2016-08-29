@@ -1,0 +1,60 @@
+#background {
+	background-image: url("./family.jpg");
+	background-size: 100%;
+}
+
+#logIn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline;
+	background-color: red;
+	color: white;
+	font-size: 14px;
+	padding-left:25px;
+	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 40px;
+}
+
+#center{
+	text-align: center;
+}
+
+#batman {
+	display: inline-block;
+	background-color: rgba(0,0,0,0.5);
+	padding-bottom: 30px;
+}
+
+#float {
+	font-size: 30px;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+	padding-top: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#trial {
+	color: white;
+	display: inline;
+	background-color: #6aa0cd;
+	font-size: 13px;
+	padding: 8px;
+	margin-bottom: 50px;
+}
+
+h3 {
+	display: inline-block;
+	background-color: white;
+	padding: 40px;
+	padding-top: 10px;
+}
+
+footer {
+	background-color: black;
+	padding: 40px;
+}
