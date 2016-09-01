@@ -13,21 +13,36 @@ fs.readFile("lib/movies1.txt","utf8", function (theError, movieFileContents) {
 		console.log(moviesArray);
 	}
 
-	//var read = require("read");
-	//read(options,callback);
+	var read = require("read");
+	var theOptions = {prompt: "What is your name?"};
+
+	function greetUser (theError, givenName){
+		console.log(`Hello, ${givenName}.`);
+	
+		var options2 = {prompt: "What is your DOB?"};
+
+		
+
+		function displayBirthday(theError, birthDate){
+			console.log(`You were born on: ${birthDate}`);
+		}
+	
+		read(options2,displayBirthday);
+	}
+	read(theOptions,greetUser);
 
 })
 
 function shout () {
-	console.log("OHHHHHHYEAHHHHHHHHHH I waiteedddddd!!!!!!");
+	console.log("You a bum");
 }
 
 function shout2 () {
-	console.log("I suck at waiting");
+	console.log("YOU DON'T KNOW YA NAME!?");
 }
 
 function shout3 () {
-	console.log("I didn't wait long enough");
+	console.log("DAMN YOU SLOW");
 }
 setTimeout(shout,10000);
 setTimeout(shout2,5000);
