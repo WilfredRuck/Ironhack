@@ -6,7 +6,7 @@ function fileActions(err, file){
         throw err;
     }
     var episodes = JSON.parse(file);
-    console.log(episodes[0].title);
+
 
     var findJonSnow = episodes.filter(function(ep){
     	return ep.description.includes("Jon Snow");
@@ -18,13 +18,16 @@ function fileActions(err, file){
 
 	});
 
-	var eps = filterLosers.sort(function (a, b){
+
+	var sortedEpisodes = filterLosers.sort(function (a, b){
 		return a.episode_number - b.episode_number
 	});
 
+	if (sortedEpisodes.length === 0){
+		console.log("No episodes fit these adjustments!")
+	}
 
-
-	filterLosers.forEach(function (eachEpisode) {
+	sortedEpisodes.forEach(function (eachEpisode) {
 		
 		eachEpisode.star = "*";
 		var numStars = Math.round(eachEpisode.rating); 

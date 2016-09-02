@@ -1,0 +1,61 @@
+.row1{
+	height: 45px;
+}
+
+.back{
+	background-image: url("./chucky.jpeg");
+	width: 100%;
+	height: auto;
+
+	background-repeat: no-repeat;
+	background-position: 
+}
+
+.buttons{
+	position: relative;
+	left: 400px;
+}
+
+.back2 {
+	background-image: url("./chucknorris.jpeg");
+	background-size: 100%;
+	border: 5px solid white;
+	border-radius: 10px;
+}
+
+.center {`
+	padding-right: 20px;
+	padding-left: 20px;		
+}
+
+.twitterImage{
+	position: relative; 
+	top: 15px;
+}
+
+.searchBar{
+	border-radius: 20px;
+}
+
+.chevy{
+	border: 2px solid lightgreen;
+	border-radius: 10px;
+}
+
+.tweetAmount{
+	position: relative;
+	left: 60px;
+}
+
+.followButton{
+	position: relative;
+	left: 170px;
+}
+
+.table{
+	border: 1px solid black;
+}
+
+.tweets{
+	border-radius: 10px;
+}
