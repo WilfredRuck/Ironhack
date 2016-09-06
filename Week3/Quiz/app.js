@@ -12,15 +12,17 @@ class Question {
 		if (this.idcheck === id){
 			var question1 = "What is the most popular fruit in the US? ";
 			var answer1 = "apples";
-			console.log("You got this part to work!");
-			console.log(answer1);
+			console.log(question1);
 		}
 	}
 
 	secondQuestion(){
 		var id = 2;
-		var question2 = "What is the best primary color? ";
-		var answer2 = "red";
+
+		if (this.idcheck === id)
+			var question2 = "What is the best primary color? ";
+			var answer2 = "red";
+			console.log("YOU MADE IT TO THE SECOND QUESTION! YESSS!");
 	}
 	
 	thirdQuestion(){
@@ -37,37 +39,53 @@ class Quiz {
 	}
 
 	 quiz(){
-	 	if (this.a_answer)
-		console.log("\nAnswer: Don't ask stupid questions.");
+	 	this.a_answer[0].toUpperCase();
+	 	if (this.a_answer !== "Apples"){
+			console.log("\nResponse: Nah b.");
+			console.log("Answer: Apples");
+			console.log("\n Try Again \n");
+			whichQuestion();
+			read(options,giveAnswer);
+		}
+
+		else{
+			console.log("\nResponse: Yassssss!");
+			console.log("\n\n Next Question! Get Ready. \n\n");
+			// whichQuestion(id + 1);
+			// read(options,giveAnswer);
+			console.log("Sike, haven't programmed this part yet\n");
+		}
+
+
+
 	}
 }
 
 
 
-function whichQuestion() {
-	var id = 1;
-	var thisId = new Question(id);
+function whichQuestion(number) {
+	var thisId = new Question(number);
 	thisId.firstQuestion();
 }
 
-whichQuestion();
+whichQuestion(1);
 
-// var read = require('read');
+var read = require('read');
 
-// var options = {
-//     prompt: "What's your answer?  "
-// } // Our options object, the prompt is simply what will appear in the command line when read is called
+var options = {
+    prompt: "\nYour Answer:  "
+} // Our options object, the prompt is simply what will appear in the command line when read is called
 
-// read(options, giveAnswer);
-// // The prompt itself, passing options, and using our callback function after input
+read(options, giveAnswer);
+// The prompt itself, passing options, and using our callback function after input
 
 
 
-// function giveAnswer (err, answers){
-//    var answer = new Quiz(answers);
-//    answer.quiz(); 
-// }
-// // Outputs whatever the user has entered back to the console
+function giveAnswer (err, answers){
+ 	var answer = new Quiz(answers);
+	answer.quiz(); 
+}
+// Outputs whatever the user has entered back to the console
 
 
 
