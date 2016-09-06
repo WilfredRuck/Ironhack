@@ -11,6 +11,13 @@
 	background-position: 
 }
 
+
+
+.row3{
+	position: relative;
+	top: 15px;
+}
+
 .buttons{
 	position: relative;
 	left: 400px;
