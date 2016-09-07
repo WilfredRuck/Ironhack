@@ -1,0 +1,22 @@
+<h1> Welcome to TimeTracking Tool 2</h1>
+<p> Powered by Verizon, of course...</p>
+
+<p> ADD A NEW CONTACT? </p>
+<form>
+	<input type ="text" name="user[Name]" placeholder = "Name">
+	<input type ="text" name="user[Address]" placeholder = "Address">
+	<input type ="text" name="user[PhoneNumber]" placeholder = "Phone #">
+	<input type ="email" name="user[Email]" placeholder = "Email Address">
+	<button type ="submit">Submit!</button>
+</form>
+
+
+<ul>
+	<%@contacts.each do |contact| %>
+		<li> <%= contact.name %> | <%= contact.address %> | <%= contact.phonenumber %> | <%= contact.email%> 
+		</li> 
+	<%end%>
+
+</ul>
+
+
