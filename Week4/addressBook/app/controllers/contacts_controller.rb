@@ -1,13 +1,24 @@
 class ContactsController < ApplicationController
 	def home
-		@contacts = Contact.all
+		@contacts = Contact.order(:name)
 		render 'home'
 	end
 
 	def contacts
-		@new_contact = Contact.new(name: params[:Name], address: params[:Address], phonenumber: params[:PhoneNumber], email: params[:Email])
-		@contacts = Contact.all
-		render 'home'
+		contact = Contact.new(
+      :name => params[:contact][:name],
+      :address => params[:contact][:address],
+      :phonenumber => params[:contact][:phone],
+      :email => params[:contact][:email])
+
+		contact.save
+
+		redirect_to("/")
+	end
+
+	def show
+		@contact = Contact.all
+		render 'show'
 	end
 
 end
