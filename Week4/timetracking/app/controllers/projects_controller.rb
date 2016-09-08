@@ -10,4 +10,9 @@ class ProjectsController < ApplicationController
 		@project = Project.find_by(id: params[:id])
 		render 'show'
 	end
+
+	def new
+		@project = Project.new[name: 'Guessing', description: 'description of the guess']
+		@project.save
+	end
 end
