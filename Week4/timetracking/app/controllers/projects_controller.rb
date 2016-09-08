@@ -19,6 +19,6 @@ class ProjectsController < ApplicationController
 		@project = Project.new(name: params[:project][:name],
 					    description: params[:project][:description])
 	@project.save
-	redirect_to "/projects"
+	redirect_to "/projects/#{project.id}/time_entries"
 	end
 end
