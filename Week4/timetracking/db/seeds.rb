@@ -5,22 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Project.create!(name: 'Ironhack', description: 'Ironhack is a....')
+a = Project.create!(name: 'Ironhack', description: 'Ironhack is a....')
 
-Project.create!(name: 'Time Tracking App', description: 'Project finished')
+b = Project.create!(name: 'Time Tracking App', description: 'Project finished')
 
-Project.create!(name: 'Recipes', description: 'Track my favorite recipes')
+c = Project.create!(name: 'Recipes', description: 'Track my favorite recipes')
 
-Project.create!(name: 'Pancakes', description: 'Chocolate Chip')
+d = Project.create!(name: 'Pancakes', description: 'Chocolate Chip')
 
-Project.create!(name: 'Miami', description: 'Hot version of New York with crazy drivers')
+e = Project.create!(name: 'Miami', description: 'Hot version of New York with crazy drivers')
 
-Project.create!(name: 'MacBook', description: 'A laptop')
+f = Project.create!(name: 'MacBook', description: 'A laptop')
 
-Project.create!(name: 'Lamborghini', description: 'A fast car')
+g = Project.create!(name: 'Lamborghini', description: 'A fast car')
 
-Project.create!(name: 'Henessy Venom GT', description: 'Thee Fastest Car')
+h = Project.create!(name: 'Henessy Venom GT', description: 'Thee Fastest Car')
 
-Project.create!(name: 'Red', description: 'The best color in the world')
+i = Project.create!(name: 'Red', description: 'The best color in the world')
 
-Project.create!(name: 'Delta', description: 'An airline')
+j = Project.create!(name: 'Delta', description: 'An airline')
+
+a.time_entries.create( hours: '5', minutes: '3')
+b.time_entries.create( hours: '1', minutes: '3')
+c.time_entries.create( hours: '3', minutes: '54')
+d.time_entries.create( hours: '5', minutes: '52')
+e.time_entries.create( hours: '2', minutes: '2')
+f.time_entries.create( hours: '1', minutes: '0')
+g.time_entries.create( hours: '0', minutes: '30')
+h.time_entries.create( hours: '9', minutes: '19')
+i.time_entries.create( hours: '8', minutes: '28')
+j.time_entries.create( hours: '9', minutes: '16')
