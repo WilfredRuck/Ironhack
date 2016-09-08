@@ -10,10 +10,11 @@
 
   <body>
   	<ul>
-  		<li> <a href="/"> Home </a> </li>
-  		<li> <a href="/contact"> Contact Us </a> </li>
-  		<li> <a href="/say_name/Will"> Get Introduced </a> </li>
-      <li> <a href="/projects"> DataBase </a> </li>
+  		<li> <%= link_to 'Home', '/' %> </li>
+  		<li> <%= link_to 'Contact Us', '/contact' %> </li>
+  		<li> <%= link_to 'Get Introduced', '/say_name/Will' %> </li>
+      <li> <%= link_to 'Database', '/projects' %> </li>
+      <li> <%= link_to 'Create New', '/projects/new' %> </li>
 
 
   	</ul>

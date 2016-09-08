@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
 	get '/say_name/:name', to: 'site#say_name'
 
+	post '/projects', to: 'projects#create'
+
 	get '/projects', to: 'projects#index'
 
 	get '/projects/new', to: 'projects#new'
