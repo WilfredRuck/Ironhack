@@ -16,8 +16,8 @@ class ContactsController < ApplicationController
 		redirect_to("/")
 	end
 
-	def show
-		@contact = Contact.all
+	def shoow
+		@contact = Contact.find(id: 1)
 		render 'show'
 	end
 

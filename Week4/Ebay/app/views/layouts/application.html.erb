@@ -9,6 +9,11 @@
   </head>
 
   <body>
+  	<%= link_to "Home", "/" %> |
+    <%= link_to "List of users", "/users/index" %> |
+	<%= link_to "List of Products", "/product/index" %> |
+	<%= link_to "Post New Product", "/product/create" %>
     <%= yield %>
+
   </body>
 </html>

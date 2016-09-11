@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
 	post '/contacts', to: 'contacts#contacts'
 
-	get '/show', to: 'contacts#show'
+	get '/contacts/id', to: 'contacts#show'
 end
  
