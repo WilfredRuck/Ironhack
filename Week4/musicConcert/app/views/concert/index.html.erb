@@ -1,0 +1,20 @@
+<h1>Details for all movies</h1>
+
+<ul>
+
+	<% @concerts.each do |concert| %>
+		<h5> <%= concert.artist%>'s Concert:</h5>
+		
+		<li> Artist: <%= concert.artist %> </li>
+		<li> Venue: <%= concert.venue %> </li>
+		<li> City: <%= concert.city %> </li>
+		<li> Date: <%= concert.date %> </li>
+		<li> Price: <%= concert.price %> </li>
+		<li> Description: <%= concert.description %> </li>
+			
+			<br>
+			<br>
+		
+	<% end %>
+
+</ul>
