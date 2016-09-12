@@ -9,10 +9,14 @@
   </head>
 
   <body>
-  	
-  		<%= link_to 'Home', '/' %> 
-  		<%= link_to 'All Concerts', '/concerts' %> 
-    
-    <%= yield %>
+  	<h1> Concert Exposure </h1>
+  		<%= link_to 'Home', '/' %> |
+  		<%= link_to 'All Concerts', '/concerts' %> |
+      <%= link_to 'Kanye West Concerts', '/concerts/later'%> |
+      <%= link_to 'Create A Concert', '/concerts/new'%> 
+      <%= yield %>
+      <footer>
+          ¡Made by the Smurfs! 
+      </footer>
   </body>
 </html>

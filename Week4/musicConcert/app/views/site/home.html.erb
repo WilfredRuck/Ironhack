@@ -1,17 +1,26 @@
-<h1>Welcome to Concert Exposure</h1>
-<h3>
+<h4>
+	<p>Welcome to Concert Exposure!</p>
 	<p> This website displays concerts happening all around the US.<p>
-	<p> Please create a concert or click an upcoming concert below to view it's details.</p>
-</h3>
-
-
-<br>
+	<p> Here are all concerts happening today: </p>
+</h4>
 
 <ul>
-	<li> <%=link_to  '', '' %> </li>
-	<li> <%=link_to  '', '' %> </li>
-	<li> <%=link_to  '', '' %> </li>
-	<li> <%=link_to  '', '' %> </li>
-	<li> <%=link_to  '', '' %> </li>
+	<% if @concerts.length > 0 %>
+		
+		<% @concerts.each do |concert| %>
+			<h5> <%= concert.artist%>'s Concert:</h5>
+		
+			<li> Artist: <%= concert.artist %> </li>
+			<li> Venue: <%= concert.venue %> </li>
+			<li> City: <%= concert.city %> </li>
+			<li> Date: <%= concert.date %> </li>
+			<li> Price: <%= concert.price %> </li>
+			<li> Description: <%= concert.description %> </li>
+			
+		<% end %>
+
+	<%else%> 
+		<p> <b> THERE ARE NO CONCERTS TODAY! </b> <p> 
+	<% end %>
 
 </ul>

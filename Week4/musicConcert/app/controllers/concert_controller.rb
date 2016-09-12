@@ -7,19 +7,27 @@ class ConcertController < ApplicationController
 	end
 
 	def show
-		# @project = Project.find_by(id: params[:id])
-		# render 'show'
+		 @concert = Concert.find(params[:id])
+		
 	end
 
 	def new
-		# @project = Project.new
+		@concert = Concert.new
 	end
 
 	def create
-	# 	@project = Project.new(name: params[:project][:name],
-	# 				    description: params[:project][:description])
-	# @project.save
-	# redirect_to "/projects/#{project.id}/time_entries"
+		@concert = Concert.new(artist: params[:concert][:artist],
+							   venue: params[:concert][:venue],
+							   city: params[:concert][:city],
+							   date: params[:concert][:date],
+							   price: params[:concert][:price],
+					    	   description: params[:concert][:description])
+		@concert.save
+		redirect_to "/concerts/#{@concert.id}"
+	end
+
+	def later
+		@concerts = Concert.where(artist: "Kanye West")
 	end
 
 end
