@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'comment/comments'
+
 
 	get '/', to: 'site#home'
 	
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 	get '/concerts/:id', to: 'concert#show'
 
-	get '/concerts/:id/comments/new', to: 'comment#new'
+	get '/concerts/:id/comment/new', to: 'comment#new'
 
 	post '/concerts/:id/comments', to: 'comment#create'
 
