@@ -28,7 +28,10 @@ function findArtist (theEvent){
 		charactersArray.forEach(function(artist){
 			var html =` 
 			<li>
-				<h2> Name: ${artist.name} </h2> 
+				<button class = "js-albums" style = "background-color: gold"> 
+					<h2> Name: ${artist.name} </h2> 
+				</button>
+				<br>
 				<img src = ${artist.images[1].url} > 
 
 			</li>
@@ -44,4 +47,19 @@ function findArtist (theEvent){
 		console.log(error.responseText);
 
 	}
+	$('.js-albums').on('click', function () {
+	
+		if ( $('.js-albums').hasClass('active') ) {
+			console.log("HIDE IT!");
+		}
+		else {
+			console.log("SHOW IT!");
+		}
+
+		$('.js-albums').toggleClass('active');
+	});
 }
+
+
+
+
