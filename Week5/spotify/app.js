@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 function findArtist (theEvent){
 	theEvent.preventDefault();
-	console.log("I made it!")
+	console.log("I made it!");
 
 	var artist = $(".js-artist").val();
 	console.log(artist);
@@ -23,23 +23,26 @@ function findArtist (theEvent){
 	function showCharacters(response){
 		$('.js-artist-info').empty();
 		var charactersArray = response.artists.items;
-		console.log(response);
 
 		charactersArray.forEach(function(artist){
-			var html =` 
-			<li>
-				<button class = "js-albums" style = "background-color: gold"> 
-					<h2> Name: ${artist.name} </h2> 
-				</button>
-				<br>
-				<img src = ${artist.images[1].url} > 
+			if (artist.images != 0){
+				var html =` 
+				<li>
+					<button class= "js-albums" data-blah= "${artist.id}" style= "background-color: gold"> 
+						<h2> Name: ${artist.name} </h2> 
+					</button>
+					<br>
+					<p class = "js-artist-albums"> </p>
+					<br>
+					<img src = ${artist.images[1].url} > 
 
-			</li>
-			`;
-			$('.js-artist-info').append(html);
-			console.log(html);
+				</li>
+				`;
+				$('.js-artist-info').append(html);
+			}
 		});
 
+		$('.js-albums').on('click', fetchAlbums);
 	}
 
 	function handleError(error){
@@ -47,18 +50,55 @@ function findArtist (theEvent){
 		console.log(error.responseText);
 
 	}
-	$('.js-albums').on('click', function () {
 	
-		if ( $('.js-albums').hasClass('active') ) {
-			console.log("HIDE IT!");
-		}
-		else {
-			console.log("SHOW IT!");
-		}
+		// if ( $('.js-albums').hasClass('active') ) {
+		// 	console.log("HIDE IT!");
+		// }
+		// else {
+		// 	console.log("SHOW IT!");
+		// }
 
-		$('.js-albums').toggleClass('active');
-	});
+		// $('.js-albums').toggleClass('active');
+	
 }
+
+function fetchAlbums(theEvent){
+		console.log("I was clicked!");
+		var artist_id = $(theEvent.currentTarget).data("blah");
+		$.ajax({
+			type: "GET",
+			url: `https://api.spotify.com/v1/artists/${artist_id}/albums`,
+			success: showAlbums,
+			error: errorHandler
+		});
+	
+	function showAlbums(response){
+		$('.js-artist-albums').empty();
+		var albumArray = response.items;
+		console.log(albumArray);
+
+		albumArray.forEach(function(album){
+			console.log(album);
+
+				var html =` 
+				<li>
+					<p> Name: ${album.name} </p>  
+
+				</li>
+				`;
+				$('.js-artist-albums').append(html);
+		});
+
+	}
+
+	function errorHandler(error){
+		console.log("thumbs down");
+		console.log(error.responseText);
+
+	}
+
+}
+
 
 
 
