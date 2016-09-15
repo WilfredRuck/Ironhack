@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 function findArtist (theEvent){
 	theEvent.preventDefault();
-	console.log("I made it!");
 
 	var artist = $(".js-artist").val();
 	console.log(artist);
@@ -16,23 +15,27 @@ function findArtist (theEvent){
 		error: handleError
 	});
 
-	console.log("I'm still here!")
 	// open(`https://api.spotify.com/v1/search?type=artist&query=${artist}`);
 
 
 	function showCharacters(response){
 		$('.js-artist-info').empty();
+		$('.js-artist-albums').empty();
+
 		var charactersArray = response.artists.items;
 
 		charactersArray.forEach(function(artist){
 			if (artist.images != 0){
 				var html =` 
 				<li>
-					<button class= "js-albums" data-blah= "${artist.id}" style= "background-color: gold"> 
-						<h2> Name: ${artist.name} </h2> 
+					<button class= "js-albums" data-blah= "${artist.id}"  
+					style= "background-color: gold"> 
+						
+					<h2> Name: ${artist.name} </h2> 
 					</button>
 					<br>
-					<p class = "js-artist-albums"> </p>
+					<br>
+					^^^^^^^^^^^^^^^^^^^^^^^^
 					<br>
 					<img src = ${artist.images[1].url} > 
 
@@ -43,6 +46,7 @@ function findArtist (theEvent){
 		});
 
 		$('.js-albums').on('click', fetchAlbums);
+
 	}
 
 	function handleError(error){
