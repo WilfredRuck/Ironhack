@@ -11,21 +11,26 @@ function findArtist (theEvent){
 	$.ajax({
 		type: "GET",
 		url: `https://api.spotify.com/v1/search?type=artist&query=${artist}`,
-		success: showCharacters,
+		success: showArtists,
 		error: handleError
 	});
 
 	// open(`https://api.spotify.com/v1/search?type=artist&query=${artist}`);
 
 
-	function showCharacters(response){
+	function showArtists(response){
 		$('.js-artist-info').empty();
 		$('.js-artist-albums').empty();
 
-		var charactersArray = response.artists.items;
+		var artistsArray = response.artists.items;
 
-		charactersArray.forEach(function(artist){
+		artistsArray.forEach(function(artist){
 			if (artist.images != 0){
+				image = artist.images[1].url
+			}
+			else{
+				image = "http://www.designofsignage.com/application/symbol/building/image/600x600/no-photo.jpg"
+			}
 				var html =` 
 				<li>
 					<button class= "js-albums" data-blah= "${artist.id}"  
@@ -37,12 +42,11 @@ function findArtist (theEvent){
 					<br>
 					^^^^^^^^^^^^^^^^^^^^^^^^
 					<br>
-					<img src = ${artist.images[1].url} > 
+					<img src = ${image} > 
 
 				</li>
 				`;
 				$('.js-artist-info').append(html);
-			}
 		});
 
 		$('.js-albums').on('click', fetchAlbums);
@@ -54,15 +58,6 @@ function findArtist (theEvent){
 		console.log(error.responseText);
 
 	}
-	
-		// if ( $('.js-albums').hasClass('active') ) {
-		// 	console.log("HIDE IT!");
-		// }
-		// else {
-		// 	console.log("SHOW IT!");
-		// }
-
-		// $('.js-albums').toggleClass('active');
 	
 }
 
