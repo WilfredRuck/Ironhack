@@ -6,4 +6,5 @@ ten movies are then shown on the next page with their corresponding movie poster
 
 The user is then asked to pick the correct movie based on their assumption of the answer
 to the given question. Each movie poster is clickable, giving a prompt message whether
-their selection is correct. The correct movie is always picked at random by the program.
+their selection is correct or incorrect. The correct movie is always picked at random
+by the program.
