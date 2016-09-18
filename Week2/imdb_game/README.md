@@ -1,4 +1,4 @@
-IMDB GAME
+<b>IMDB GAME</b>
 
 This program takes in user input via a search bar for movies. When the search is submitted,
 the program searches the IMDB database for the first ten movies matching the input. Those
