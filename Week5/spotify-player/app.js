@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 	$('.btn-play').on('click', previewSong);
 
-
+	$('.js-audio').on('timeupdate', printTime);
 
 
 

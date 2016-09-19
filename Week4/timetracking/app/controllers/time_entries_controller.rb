@@ -11,7 +11,7 @@ class TimeEntriesController < ApplicationController
 		if time_entry.update(time_entry_params)
 		redirect_to "/projects/#{project.id}/time_entries"
 		else
-			redirect_to "/projects/#{project.id}/time_entries/#{time_entry.id}/edit"
+			redirect_to "/projects/#{@project.id}/time_entries/#{@time_entry.id}/edit"
 		end
 	end
 
