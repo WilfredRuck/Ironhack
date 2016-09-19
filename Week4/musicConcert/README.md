@@ -1,24 +1,9 @@
-# README
+# Concert Exposure
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Tracks user-inputted concerts in the US.
 
-Things you may want to cover:
+* Allows users to add concerts, see what concerts are happening on the current day and current month, or see all listed Kanye West concerts.
 
-* Ruby version
+* Allows users to see what concerts are happening on the current month
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Allows users to see all Kanye West concerts ever...because that's very important
