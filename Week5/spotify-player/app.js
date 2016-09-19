@@ -13,7 +13,6 @@ $(document).ready(function(){
 		theEvent.preventDefault();
 
 		var song = $(".js-song").val();
-		console.log(song);
 
 		$.ajax({
 			type: "GET",
@@ -69,7 +68,6 @@ $(document).ready(function(){
 		
 		if ( $('.btn-play').hasClass('playing') ) {
 			$('.js-audio').trigger('play');
-			$('.js-audio').on('timeupdate', printTime);
 
 		}
 		else {
