@@ -44,13 +44,22 @@ class SandwichesController < ApplicationController
 	# end
 	def add
 		sandwich = Sandwich.find_by(id: params[:id])
+		ingredient = Ingredient.find_by(id: params[:ingredient_id])
+		sandwich.ingredients.push(ingredient)
+		sandwich.total_calories = 0
+
+		sandwich.ingredients.each do |ingredient|
+			sandwich.total_calories += ingredient.calories
+		end
+		
+		sandwich.save
+
 		unless sandwich
 			render json: {error: "sandwich not found"}, status: 404
 			return			
 		end
-		ingredient = Ingredient.find_by(id: params[:ingredient_id])
-		sandwich.ingredients.push(ingredient)
-		render json: sandwich.ingredients
+
+		render json: sandwich.to_json(:include => [:ingredients])
 	end
 
 	private

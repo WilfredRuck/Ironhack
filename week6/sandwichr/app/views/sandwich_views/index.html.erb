@@ -1,0 +1,6 @@
+<h1> Sandwiches </h1>
+
+<% @sandwiches.each do |sandwich| %>
+	- <%= link_to sandwich.name, "/sandwiches/:id"  %> 
+	<br>
+<%end%>

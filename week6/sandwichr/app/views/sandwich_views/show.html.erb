@@ -1,0 +1,26 @@
+<h1> <%= @sandwich.name %>  </h1>
+
+
+	- <%= @sandwich.bread_type %> 
+	
+	<br>
+	
+	- <%= @sandwich.total_calories %>
+
+
+	<ul class = "js-ingredients-list">
+		<% @sandwich.ingredients.each do |ingredient| %>
+			- <%= ingredient.name %> 
+			<br>
+
+		<%end%>
+	</ul>
+
+
+<h3> All Possible Ingredients</h3>
+<% @ingredients.each do |ingredient| %>
+
+	<button class = "butter" data-ingred = "<%= ingredient.id %>" data-sand = "<%= @sandwich.id%>" style = "background-color: orange"> <%= ingredient.name %> </button>
+	<br>
+
+<%end%>
