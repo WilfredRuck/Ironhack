@@ -1,0 +1,11 @@
+<h2>Input the required fields to post a new picture! </h2>
+
+<%= form_for @picture_entry do |f| %>
+	<%= f.label :caption %>
+	<%= f.text_field :caption %>
+
+	<%= f.label :location %>
+	<%= f.text_field :location %>
+
+	<%= f.button %>
+<%end%>

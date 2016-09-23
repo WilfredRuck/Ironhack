@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/home'
-
   root "users#home"
   devise_for :users
 
