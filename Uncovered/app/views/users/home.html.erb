@@ -9,7 +9,7 @@
 <ul>
 
 <!-- 	USERS /an array/ => PICTURES /object/ => CAPTION OR LOCATION /hash/ 
- -->	<% @users.each do |user|%>
+ --><% @users.each do |user|%>
 
 		<% user.pictures.each do |post| %>
 		
@@ -22,7 +22,7 @@
 			</li>
 
 			<li>
-				<p> Picture: <b>THE PICTURE GOES HERE </b> </p>
+				<%= image_tag post.image.url %>
 			</li>
 
 			<br> 

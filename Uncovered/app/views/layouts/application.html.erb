@@ -15,15 +15,10 @@
     	<p> Welcome <%= current_user.name %>! </p>
     	<button> <%= link_to "Logout", destroy_user_session_path, method: "delete" %> </button>
       <button> <%= link_to "Edit Account", edit_user_registration_path %> </button>
-      <button> <%= link_to "Make A Post", "/users/pictures/new" %> </button>
-      <button type="button" class="btn btn-default btn-lg">
-      
-      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-      <%= link_to "Home", "/" %> 
-      
-      </button>
+      <button> <%= link_to "Make A Post", new_picture_path %> </button>
+      <button> <%= link_to "Home", "/" %> </button>
  
-      <button> <%= link_to "Pictures", "/pictures/#{:id}" %> </button>  
+      <button> <%= link_to "Pictures", "/pictures/#{current_user.id}" %> </button>  
     <%end%>
     <%= yield %>
     <p> &copy Wilfred Ruck &#9818</p>

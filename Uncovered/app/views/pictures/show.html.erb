@@ -2,15 +2,26 @@
 	
 
 <ul>
-	<% @user.pictures.sort.each do |post| %>
-		<li>
-			<p> Caption: <%= post.caption%> </p>
-			<p> Location: <%= post.location%> </p>
-			
-			<%= link_to image_tag(post.image_file_name.url(:med)), post.image_file_name.url %>
-		</li>
-		<br>
-		<br>
+	<%if @user.pictures.length != 0%>
+		<% @user.pictures.sort.each do |post| %>
+			<li>
+					<button>Edit Post</button> 
+					<button> <%= link_to "Delete", post, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+                    </button>
+				<p> Caption: <%= post.caption%> </p>
+				<p> Location: <%= post.location%> </p>
+				<p> Picture: <%= post.image.url%> </p>
+				
+			</li>
+			<br>
+			<br>
+		<%end%>
+	<%else%>
+		<h1> You Have No Posts Yet</h1>
+		<p> Would you like to create one!? 
+		<button> <%= link_to "Create!", new_picture_path %> </button>
+		</p>
 	<%end%>
 </ul>
 

@@ -2,13 +2,13 @@
 
 <%= form_for @picture_entry, html: { multipart: true } do |f| %>
 	<%= f.label :caption %>
-	<%= f.text_field :caption %>
+	<%= f.text_area :caption, placeholder: "Create a caption..." %>
 
 	<%= f.label :location %>
-	<%= f.text_field :location %>
+	<%= f.text_field :location, placeholder: "Enter Location"  %>
 
-	<%= f.lavel :image_file_name %>
-	<%= f.file_field :image_file_name %>
+	<%= f.label :image %>
+	<%= f.file_field :image%>
 
-	<%= f.button %>
+	<%= f.submit "Post Picture" %>
 <%end%>
