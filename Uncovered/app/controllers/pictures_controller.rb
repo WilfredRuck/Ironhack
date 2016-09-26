@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
 
   def create
   	@picture_entry = current_user.pictures.build(picture_entry_params)
+
     if @picture_entry.save
       flash = { success: "It worked!", error: "It failed." }
       redirect_to root_url
@@ -37,7 +38,7 @@ class PicturesController < ApplicationController
 
  private 
 	def picture_entry_params
-	  params.require(:picture).permit(:caption, :location, :image_file_name)
+	  params.require(:picture).permit(:caption, :location, :image)
 	end
 
 	  # def correct_user

@@ -20,7 +20,7 @@ denzel = User.create! (
 )
 
 admin.pictures.create! (
-	{ caption: "My First Post" , location: "Miami, FL", image_file_name: "https://pixabay.com/static/uploads/photo/2015/11/07/11/02/milky-way-1030765_640.jpg?attachment, https://pixabay.com/en/milky-way-galaxy-space-universe-1030765/" }
+	{ caption: "My First Post" , location: "Miami, FL", image_file_name: "https://pixabay.com/static/uploads/photo/2015/11/07/11/02/milky-way-1030765_640.jpg?attachment, https://pixabay.com/en/milky-way-galaxy-space-universe-1030765/"}
 	)
 
 matthew.pictures.create! (
