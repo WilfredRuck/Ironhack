@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
 	before_action :authenticate_user!
-	# before_action :correct_user, only: :destroy
+	before_action :correct_user, only: [:destroy] 
 
  
 
@@ -29,8 +29,19 @@ class PicturesController < ApplicationController
   	@user = User.find_by(id: params[:id])
   end
 
+  def edit
+  	
+  	puts"--------------------------"
+  	@post = current_user.pictures.find(params[:id])
+  	p @post
+  	puts"--------------------------"
+
+  end
+
   def destroy
-  	post.destroy
+  	@user = User.find(current_user.id)
+  	@post = @user.pictures.find(params[:id])
+  	@post.destroy
   	flash = { success: "Post deleted!", error: "You are not authorized!" }
     redirect_to request.referrer || root_url #redirects user to page that requested the delete action
     										 #or redirects to Home page if that page is nil
@@ -41,9 +52,9 @@ class PicturesController < ApplicationController
 	  params.require(:picture).permit(:caption, :location, :image)
 	end
 
-	  # def correct_user
-   #    @picture = current_user.pictures.find_by(id: params[:id])
-   #    redirect_to root_url if @micropost.nil?
-   #  end
+	def correct_user
+      @post = current_user.pictures.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
+    end
 
 end

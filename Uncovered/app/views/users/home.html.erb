@@ -1,28 +1,26 @@
 <h2> Home page</h2>
 
-<!-- EDIT ACCOUNT LINK DOESN'T WORK UNLESS YOU PRESS ENTER
- -->
+
 <p> What would you like to see? </p>
 
-<h3> Explore: </h3>
+<h3> Explore: (#Ordered the wrong way. Newest post goes to the bottom right now.) </h3>
 
 <ul>
 
-<!-- 	USERS /an array/ => PICTURES /object/ => CAPTION OR LOCATION /hash/ 
- --><% @users.each do |user|%>
-
-		<% user.pictures.each do |post| %>
+ <% @users.each do |user|%>
 		
+		<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+
 			<li>
 				<p> Caption: <%= post.caption%> </p>
-			</li>
+			
 
-			<li>
+			
 				<p> Location: <%= post.location%> </p>
-			</li>
-
-			<li>
-				<%= image_tag post.image.url %>
+			
+				<br>
+			
+				<%= image_tag post.image.url(:large) %>
 			</li>
 
 			<br> 

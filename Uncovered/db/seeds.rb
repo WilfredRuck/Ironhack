@@ -8,7 +8,7 @@
 
 
 admin = User.create! (
-	{name: "Wilfred Ruck", email: "wilfredoruck@gmail.com", password: "butterBread", password_confirmation: "butterBread"}
+	{name: "Wilfred Ruck", email: "wilfredoruck@gmail.com", password: "willyn", password_confirmation: "willyn"}
 )
 
 matthew = User.create! (
@@ -19,14 +19,6 @@ denzel = User.create! (
 	{name: "Denzel Mcgue", email: "denzel.mcgue@gmail.com", password: "deerdeer", password_confirmation: "deerdeer"}
 )
 
-admin.pictures.create! (
-	{ caption: "My First Post" , location: "Miami, FL", image_file_name: "https://pixabay.com/static/uploads/photo/2015/11/07/11/02/milky-way-1030765_640.jpg?attachment, https://pixabay.com/en/milky-way-galaxy-space-universe-1030765/"}
-	)
-
-matthew.pictures.create! (
-	{ caption: "I'm Testing for you" , location: "Briarwood, NY", image_file_name: "https://pixabay.com/static/uploads/photo/2015/11/07/11/02/milky-way-1030765_640.jpg?attachment, https://pixabay.com/en/milky-way-galaxy-space-universe-1030765/" }
-	)
-
-matthew.pictures.create! (
-	{ caption: "I'm Testing for you Again!" , location: "Briarwood, NY", image_file_name: "https://pixabay.com/static/uploads/photo/2015/11/07/11/02/milky-way-1030765_640.jpg?attachment, https://pixabay.com/en/milky-way-galaxy-space-universe-1030765/" }
-	)
+lyn = User.create! (
+	{name: "Lyndaisha Harris-Harrell", email: "thelynconcept@gmail.com", password: "artallonmywalls", password_confirmation: "artallonmywalls"}
+)
