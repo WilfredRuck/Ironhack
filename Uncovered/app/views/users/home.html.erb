@@ -1,9 +1,53 @@
+
+
+<ul class = "customerTesting">
+
+	<p style="color:red;">Key elements to look for & think about while testing...<p>
+	
+	<li>
+		Learnability: How easy is it for you to learn to perform the task? For more complicated tasks, are there help features such as hints?
+	</li>
+		<br>
+	<li>
+		Intuitiveness: How obvious and easy is the task to accomplish?
+	</li>
+		<br>	
+	<li>
+		Memorability: How easy is the task to repeat?
+	</li>
+		<br>
+	<li>
+		Affordance: Are interactive elements (such as buttons, links and input text boxes) related to the accomplishment of a task? Is the page that you are brought to expected? If not, what did you expect to be shown?
+	</li>
+		<br>
+	<li>
+		And most importantly, give feedback and let me know where I can improve and what you would like to see within the site.
+	</li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h2> Home page</h2>
 
 
 <p> What would you like to see? </p>
+<p> Please message your response in the chatbox on the bottom-right of the page</p>
+<p> You may have to refresh the page to see the chatbox
 
-<h3> Explore: (#Ordered the wrong way. Newest post goes to the bottom right now.) </h3>
+<h3> Explore: </h3>
 
 <ul>
 
@@ -12,6 +56,8 @@
 		<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
 
 			<li>
+
+				<p> This post belongs to user#<%= user.id %> </p>
 				<p> Caption: <%= post.caption%> </p>
 			
 

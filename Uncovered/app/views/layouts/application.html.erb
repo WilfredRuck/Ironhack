@@ -4,12 +4,60 @@
     <title>Uncovered</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>     
+   
+      <!-- KISSMETRICS -->
+    <script type="text/javascript">var _kmq = _kmq || [];
+      var _kmk = _kmk || '9b35740c23e391d609462986188e4a5efa396ce9';
+      function _kms(u){
+        setTimeout(function(){
+          var d = document, f = d.getElementsByTagName('script')[0],
+          s = d.createElement('script');
+          s.type = 'text/javascript'; s.async = true; s.src = u;
+          f.parentNode.insertBefore(s, f);
+        }, 1);
+      }
+      _kms('//i.kissmetrics.com/i.js');
+      _kms('//scripts.kissmetrics.com/' + _kmk + '.2.js');
+    </script>
+
+    <!-- GOOGLE ANALYTICS -->
+    <script>
+      (function(n,i,_n,j,a){
+        n.addEventListener("DOMContentLoaded", function() {
+        i['liveninja'] = ["https://messenger.liveninja.com/w/uncovered?frame=true"];
+        var _n = n.createElement('script');
+        var j = n.getElementsByTagName('script')[0];
+        _n.async = 1;
+        _n.src='https://messenger.liveninja.com/w/assets/widget.js';
+        j.parentNode.insertBefore(_n, j);
+      })})(document, window);
+    </script>
+
+
+    <!-- LIVE-NINJA CHAT -->
+    <script async>
+
+      (function(n,i,_n,j,a){
+        n.addEventListener("DOMContentLoaded", function() {
+        i['liveninja'] = ["https://messenger.liveninja.com/w/uncovered?frame=true"];
+        var _n = n.createElement('script');
+        var j = n.getElementsByTagName('script')[0];
+        _n.async = 1;
+        _n.src='https://messenger.liveninja.com/w/assets/widget.js';
+        j.parentNode.insertBefore(_n, j);
+      })})(document, window);
+    </script>
+
+
+
   </head>
 
-  <body>
+
+
+  <body style = "background-color:powderblue">
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert" style="color:red"><%= alert %></p>
 
     <%if user_signed_in?%>
 
@@ -19,7 +67,7 @@
       <button> <%= link_to "Make A Post", new_picture_path %> </button>
       <button> <%= link_to "Home", "/" %> </button>
  
-      <button> <%= link_to "Your Pictures", "/pictures/#{current_user.id}" %> </button>  
+      <button> <%= link_to "Your Profile", "/pictures/#{current_user.id}" %> </button>  
     <%end%>
     <%= yield %>
     <p> &copy Wilfred Ruck &#9818</p>
