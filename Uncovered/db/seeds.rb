@@ -8,7 +8,7 @@
 
 
 admin = User.create! (
-	{name: "Wilfred Ruck", email: "wilfredoruck@gmail.com", password: "willyn", password_confirmation: "willyn", role: "admin"}
+	{name: "Wilfred Ruck", email: "wilfredoruck@gmail.com", password: "Wo*r1991", password_confirmation: "Wo*r1991", role: "admin"}
 )
 
 # matthew = User.create! (

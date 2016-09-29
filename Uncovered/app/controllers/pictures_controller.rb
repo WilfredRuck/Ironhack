@@ -39,28 +39,30 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-  	@user = current_user
 
-      #Back to normal after trying to get admin priveleges
-    # if @user.id == 1
-      # id = params[:id]
 
-      # @user = User.find(id)
-      # @post = @user.pictures.find(params[:id])
-      # @post.destroy
-      # flash = { success: "Post deleted!", error: "You are not authorized!" }
-      # redirect_to request.referrer || root_url #redirects user to page that requested the delete action
-      #                      #or redirects to Home page if that page is nil
-      # # x = 0
-      # # @users = User.all
-      # # while x < @users
-    # else
-    	@post = @user.pictures.find(params[:id])
-    	@post.destroy
-    	flash = { success: "Post deleted!", error: "You are not authorized!" }
-      redirect_to request.referrer || root_url #redirects user to page that requested the delete action
-      										 #or redirects to Home page if that page is nil
-    # end
+    	@user = current_user
+
+        #Back to normal after trying to get admin priveleges
+      # if @user.id == 1
+        # id = params[:id]
+
+        # @user = User.find(id)
+        # @post = @user.pictures.find(params[:id])
+        # @post.destroy
+        # flash = { success: "Post deleted!", error: "You are not authorized!" }
+        # redirect_to request.referrer || root_url #redirects user to page that requested the delete action
+        #                      #or redirects to Home page if that page is nil
+        # # x = 0
+        # # @users = User.all
+        # # while x < @users
+      # else
+      	@post = @user.pictures.find(params[:id])
+      	@post.destroy
+      	flash = { success: "Post deleted!", error: "You are not authorized!" }
+        redirect_to request.referrer || root_url #redirects user to page that requested the delete action
+        										 #or redirects to Home page if that page is nil
+  
   end
 
  private 
@@ -70,7 +72,7 @@ class PicturesController < ApplicationController
 
 	def correct_user
       @post = current_user.pictures.find_by(id: params[:id])
-      redirect_to root_url if @post.nil?
+      redirect_to root_url if @post.nil? 
   end
 
 end

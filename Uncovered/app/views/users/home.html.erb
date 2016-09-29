@@ -8,39 +8,81 @@
 
 		
 			<p> What would you like to see? </p>
-			<p> Please message your response in the chatbox on the bottom-right of the page</p>
-			<p>(May take a while for it to pop up.)</p>
+			<p> Please message your response in the chatbox on the bottom-right of the page!</p>
+			<p>(May take a while for it to pop up)</p>
 		
 		</center>
-		
-			<h3> Explore: </h3>
 
-			<ul>
-		
-			 <% @users.each do |user|%>
-					
-					<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+			<% if current_user.role == "admin" %>
 
-						<li>
-
-							<p> This post belongs to user#<%= user.id %> </p>
-							<p> Caption: <%= post.caption%> </p>
+					<h2> ALL POSTS </h2>
+                <ul>
+			
+					<% @users.each do |user|%>
 						
+						<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
 
-						
-							<p> Location: <%= post.location%> </p>
-						
+							<li>
+
+								<%= button_to "Delete Post", post, :class => "btn btn-primary btn-sm", 
+									method: :delete,
+                        			data: { confirm: "You sure?" }  
+                        		%>
+
+								<p> This post belongs to 
+									<%= link_to "#{user.name}", "/pictures/#{user.id}" %> 
+								</p>
+								
+
+								<p> Caption: <%= post.caption%> </p>
+							
+
+							
+								<p> Location: <%= post.location%> </p>
+							
+								<br>
+							
+								<button> <%= image_tag post.image.url(:large) %> </button>
+							</li>
+
+							<br> 
 							<br>
-						
-							<button> <%= image_tag post.image.url(:large) %> </button>
-						</li>
 
-						<br> 
-						<br>
-
+						<%end%>
 					<%end%>
-				<%end%>
-			</ul>
+				</ul>
+			
+			<%else%>
+		
+				<h3> Explore: </h3>
+
+				<ul>
+			
+				 <% @users.each do |user|%>
+						
+						<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+
+							<li>
+
+								<p> This post belongs to user#<%= user.id %> </p>
+								<p> Caption: <%= post.caption%> </p>
+							
+
+							
+								<p> Location: <%= post.location%> </p>
+							
+								<br>
+							
+								<button> <%= image_tag post.image.url(:large) %> </button>
+							</li>
+
+							<br> 
+							<br>
+
+						<%end%>
+					<%end%>
+				</ul>
+			<%end%>
     </div> <!-- END OF COLUMN 1 IN ROW 1 -->
 
 

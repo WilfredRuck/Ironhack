@@ -21,8 +21,8 @@
 		<%end%>
 	<%else%>
 		<h1> You Have No Posts Yet</h1>
-		<p> Would you like to create one!? 
-		<button> <%= link_to "Create!", new_picture_path %> </button>
+		<p class = "nobr"> Would you like to create one!? 
+		<%= button_to "Create A Post!", new_picture_path, :class => "btn btn-default btn-sm", :method => :get %>
 		</p>
 	<%end%>
 </ul>
