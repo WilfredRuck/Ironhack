@@ -41,19 +41,6 @@
     </script>
 
 
-    <!-- LIVE-NINJA CHAT -->
-    <script async>
-
-      (function(n,i,_n,j,a){
-        n.addEventListener("DOMContentLoaded", function() {
-        i['liveninja'] = ["https://messenger.liveninja.com/w/uncovered?frame=true"];
-        var _n = n.createElement('script');
-        var j = n.getElementsByTagName('script')[0];
-        _n.async = 1;
-        _n.src='https://messenger.liveninja.com/w/assets/widget.js';
-        j.parentNode.insertBefore(_n, j);
-      })})(document, window);
-    </script>
 
 
 
@@ -71,6 +58,21 @@
 
     <%if user_signed_in?%>
       <%= render 'shared/nav_bar' %>
+      <head>
+    <!-- LIVE-NINJA CHAT -->
+        <script async>
+
+          (function(n,i,_n,j,a){
+            n.addEventListener("DOMContentLoaded", function() {
+            i['liveninja'] = ["https://messenger.liveninja.com/w/uncovered?frame=true"];
+            var _n = n.createElement('script');
+            var j = n.getElementsByTagName('script')[0];
+            _n.async = 1;
+            _n.src='https://messenger.liveninja.com/w/assets/widget.js';
+            j.parentNode.insertBefore(_n, j);
+          })})(document, window);
+        </script>
+      </head>
     <%end%>
     <%= yield %>
     <p> &copy Wilfred Ruck &#9818</p>

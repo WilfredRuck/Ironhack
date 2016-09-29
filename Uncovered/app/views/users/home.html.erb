@@ -53,35 +53,49 @@
 				</ul>
 			
 			<%else%>
-		
-				<h3> Explore: </h3>
 
-				<ul>
-			
-				 <% @users.each do |user|%>
+				<% users_posts = [] %>
+				
+				<% @users.each do |user|%>
 						
-						<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+					<% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+						
+						<%users_posts.push post%>
 
-							<li>
+					<%end%>
+				<%end%>
 
-								<p> This post belongs to user#<%= user.id %> </p>
-								<p> Caption: <%= post.caption%> </p>
+					<h3> Explore: </h3>
+						<%update = []%>
+					
+						<% users_posts.each do |ordered_post|%>
+							<%update.push ordered_post%>
+
 							
-
+						<%end%>
+					<ul>	
+						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
+							<li> 
 							
-								<p> Location: <%= post.location%> </p>
+								<p> This post belongs to <%= "#{actual_post.user_id}" %> </p>
+								
+								<p> Caption: <%= actual_post.caption%> </p>
+							
+								<p> Location: <%= actual_post.location%> </p>
+
+								<p> TimeStamp: <%= actual_post.created_at %> </p>
 							
 								<br>
+								<br>
 							
-								<button> <%= image_tag post.image.url(:large) %> </button>
+								<button> <%= image_tag actual_post.image.url(:large) %> </button>
 							</li>
 
 							<br> 
 							<br>
-
 						<%end%>
-					<%end%>
-				</ul>
+					</ul>
+
 			<%end%>
     </div> <!-- END OF COLUMN 1 IN ROW 1 -->
 

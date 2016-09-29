@@ -40,8 +40,12 @@
 
 .picture {
 	background-image: url("https://s3.amazonaws.com/uncoveredpictures/underwater.jpg");
-	height: 500px;
+	height: 600px;
 	width: auto;
 	position: relative;
-	bottom: 54px;
+	bottom: 64px;
+}
+
+.pageInfo {
+	background-color:  #0099ff
 }
