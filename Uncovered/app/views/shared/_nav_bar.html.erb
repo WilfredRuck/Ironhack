@@ -6,7 +6,7 @@
 
             <%= button_to "Home", root_path, :class => "btn btn-primary btn-sm nobr", :method => :get %>
 
-            <%= button_to "Your Profile", "/pictures/#{current_user.id}", :class => "btn btn-primary btn-sm nobr", :method => :get %>
+            <%= button_to "Your Profile", "/pictures/#{current_user.name}", :class => "btn btn-primary btn-sm nobr", :method => :get %>
 
             <%= button_to "Make A Post", new_picture_path, :class => "btn btn-primary btn-sm nobr", :method => :get %>
 

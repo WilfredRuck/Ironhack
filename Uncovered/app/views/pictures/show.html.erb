@@ -6,10 +6,11 @@
 		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
 			<li>
 					<!-- edit button -->
+
+					<%= button_to "Delete Post", post, :class => "btn btn-primary btn-sm", 
+						method: :delete,
+                        data: { confirm: "You sure?" }  %>
 					
-					<button> <%= link_to "Delete", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-                    </button>
 				<p> Caption: <%= post.caption%> </p>
 				<p> Location: <%= post.location%> </p>
 				<%= image_tag post.image.url(:med) %>

@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-  	@user = User.find_by(id: params[:id])
+  	@user = User.find(current_user.id)
   end
 
   def edit
