@@ -1,54 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
+    <nav class="navbar navbar-fixed-top navbar-light bg-faded" style="background-color:black">
+      
+        <div class="row" style="color:white">
+      
+          <div class="col-sm-4"> 
 
-<head>
+            <!-- Sign Up Button trigger modal -->
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".js-sign-up-modal">Sign Up</button>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+            <!-- Log In Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".js-log-in-modal">Log In</button>
 
+          </div>
 
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+            
+          <div class="col-sm-4">
+            <font size="+3"><center>UNCOVERED</center></font>
+          </div>
 
-    <title>Uncovered</title>
+            <div class="col-sm-4 adjustSocialLanding">
+               
+                <a href="https://twitter.com/wilfred_ruck" class="btn btn-social-icon btn-twitter fa-2x">
+                    <span class="fa fa-twitter"></span>
+                </a>
 
-</head>
-
-<body id="page-top"git >
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-
-
-
-                  
-
-                  <!DOCTYPE html>
-                <h1 id="homeHeading">Uncovered</h1>
-                <hr>
-                <div style="text-align: left;">Welcome to Uncovered! This site is currently under construction and if you're here,
-                you are a beta-tester. <br> <br>
-                The end-goal of Uncovered is to allow people to post professional, quality photos with geo-tagging. Uncovered will be very similar to popular social media applications such as Instagram, Tumblr, and Pinterest. The idea is to convince users to locate a picture's location and use it for their own recreation. This location can then be used as a background for music videos, movie sets, photoshoots,sightseeing and more. Also, to deal with art/scenery changes, have a link or archive with “art history” that shows the history of that specific location. This will help artists promote their art, and help street art be contained and credited properly(as it gets replaced so quickly). Uncovered will ultimately bring business and add to the user’s promotional value.<br> 
-<br>
-At this current stage, a user can upload and delete pictures of their own, and view a log of all posts from all users. This will be the basis of my current tests before I add more content, so please feel free to sign up and test every feature available. <b>Your feedback is much appreciated!</b>
+                <a href="https://www.instagram.com/willthefred" class="btn btn-social-icon btn-instagram fa-2x">
+                    <span class="fa fa-instagram"></span> 
+                </a>
                 
+                <a href="https://www.facebook.com/wilimacjr" class="btn btn-social-icon btn-facebook fa-2x">
+                    <span class="fa fa-facebook"></span>
+                </a>  
+
+          </div>
+
+        </div>
+
+    </nav>
+
+    
+
+
+    <div class="container picture">
+
+        <div class="row">
+            <div class="col-xl-12" >
+                <div>
+                    
+                </div>
+            </div>
+        </div>   
+
+    </div>
+    
+
+
+    <section class="container">
+  
+        <div class="row">
+            <div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    Welcome to Uncovered! This site is currently under construction and if you're here,
+                you are a beta-tester. <br> <br>
+                The end-goal of Uncovered is to allow people to post professional, quality photos with geo-tagging. Uncovered will be very similar to popular social media applications such as Instagram, Tumblr, and Pinterest. The idea is to convince users to locate a picture's location and use it for their own recreation. This location can then be used as a background for music videos, movie sets, photoshoots,sightseeing and more. Also, to deal with art/scenery changes, have a link or archive with “art history” that shows the history of that specific location. This will help artists promote their art, and help street art be contained and credited properly(as it gets replaced so quickly). Uncovered will ultimately bring business and add to the user’s promotional value.
+                
+                <br> 
+                <br>
+                
+                At this current stage, a user can upload and delete pictures of their own, and view a log of all posts from all users. This will be the basis of my current tests before I add more content, so please feel free to sign up and test every feature available. <b>Your feedback is much appreciated!</b>
                 </div>
             </div>
         </div>
-    </header>
 
-    <section class="bg-primary" id="about">
+    
+
+
+
+    <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Want to give a detailed response of your experience? That's great! Shoot me an email or text and I will get back to you as soon as possible!</p>
+               
+                    <p> <i class="material-icons">message</i> <br> 786-284-1321 </p>
+                        
+                    <p> <a href="mailto:your-email@your-domain.com">
+                        <i class="material-icons">email</i>
+                        <br> wilfredoruck@gmail.com</a>
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>Log in</h2>
 
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+<!-- -------------------------------------MODALS----------------------------------------------------------------
+ -->
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade js-sign-up-modal" tabindex="10" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel"><center>We Love New Users!</center></h4>
+          </div>
+          <div class="modal-body">
+                
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= devise_error_messages! %>
+                <center>
+                      <div class="field">
+                        <%= f.label :name %><br />
+                        <%= f.text_field :name, autofocus: true %>
+                        
+
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password %>
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "off" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password_confirmation %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                      </div>
+
+
+                      <div class="modal-footer actions">
+                        <center>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <%= f.submit "Start Uncovering!", class: "btn btn-success" %>
+                        </center>
+                      </div>
+
+                </center>
+            <% end %>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Log In Modal -->
+    <div class="modal fade js-log-in-modal" tabindex="10" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel"><center>Welcome Back, Ol' Friend</center></h4>
+          </div>
+          <div class="modal-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <center>
+
                     <div class="field">
                       <%= f.label :email %><br />
                       <%= f.email_field :email, autofocus: true %>
@@ -65,45 +187,18 @@ At this current stage, a user can upload and delete pictures of their own, and v
                         <%= f.label :remember_me %>
                       </div>
                     <% end -%>
-
-                    <div class="actions">
-                      <%= f.submit "Log in" %>
-                    </div>
-                     <%= render "devise/shared/links" %>
-                  <% end %>
-                    <hr class="light">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Want to give a detailed response of your experience? That's great! Shoot me an email or text and I will get back to you as soon as possible!</p>
-                </div>
-
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p> <i class="material-icons">message</i> 786-284-1321 </p>
                     
-                    <p><a href="mailto:your-email@your-domain.com">
-                      <i class="material-icons">email</i>
-                      wilfredoruck@gmail.com</a>
-                    </p>
-
-                </div>
-            </div>
+                    <div class="modal-footer actions">
+                        <center>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <%= f.submit "Log in", class: "btn btn-primary" %>
+                        </center>
+                    </div>
+                    
+                </center>     
+            <% end %>
+          </div>
+          
         </div>
-    </section>
-
- 
-
-</body>
-
-</html>
-
+      </div>
+    </div>

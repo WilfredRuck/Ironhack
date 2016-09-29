@@ -1,14 +1,21 @@
 <h2>Input the required fields to post a new picture! </h2>
 
 <%= form_for @picture_entry, html: { multipart: true } do |f| %>
+	<%= f.label :image %>
+	<%= f.file_field :image %>
+
+	<br>
+	<br>
+
 	<%= f.label :caption %>
 	<%= f.text_area :caption, placeholder: "Create a caption..." %>
 
-	<%= f.label :location %>
-	<%= f.text_field :location, placeholder: "Enter Location"  %>
+	<br>
 
-	<%= f.label :image %>
-	<%= f.file_field :image %>
+	<%= f.label :location %>
+	<%= f.text_field :location, placeholder: "Enter Location..."  %>
+
+	<br>
 
 	<%= f.submit "Post Picture" %>
 <%end%>

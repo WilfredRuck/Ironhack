@@ -1,77 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 adjustHome"> <!-- 1ST COLUMN IN ROW 1 -->
+    	<p> Welcome <%= current_user.name %>! </p>
+    	
+    	<center>
+    		<h2> Home page </h2>
 
-
-<ul class = "customerTesting">
-
-	<p style="color:red;">Key elements to look for & think about while testing...<p>
-	
-	<li>
-		Learnability: How easy is it for you to learn to perform the task? For more complicated tasks, are there help features such as hints?
-	</li>
-		<br>
-	<li>
-		Intuitiveness: How obvious and easy is the task to accomplish?
-	</li>
-		<br>	
-	<li>
-		Memorability: How easy is the task to repeat?
-	</li>
-		<br>
-	<li>
-		Affordance: Are interactive elements (such as buttons, links and input text boxes) related to the accomplishment of a task? Is the page that you are brought to expected? If not, what did you expect to be shown?
-	</li>
-		<br>
-	<li>
-		And most importantly, give feedback and let me know where I can improve and what you would like to see within the site.
-	</li>
-
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2> Home page</h2>
-
-
-<p> What would you like to see? </p>
-<p> Please message your response in the chatbox on the bottom-right of the page</p>
-<p> You may have to refresh the page to see the chatbox
-
-<h3> Explore: </h3>
-
-<ul>
-
- <% @users.each do |user|%>
 		
-		<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+			<p> What would you like to see? </p>
+			<p> Please message your response in the chatbox on the bottom-right of the page</p>
+			<p>(May take a while for it to pop up.)</p>
+		
+		</center>
+		
+			<h3> Explore: </h3>
 
-			<li>
+			<ul>
+		
+			 <% @users.each do |user|%>
+					
+					<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
 
-				<p> This post belongs to user#<%= user.id %> </p>
-				<p> Caption: <%= post.caption%> </p>
+						<li>
+
+							<p> This post belongs to user#<%= user.id %> </p>
+							<p> Caption: <%= post.caption%> </p>
+						
+
+						
+							<p> Location: <%= post.location%> </p>
+						
+							<br>
+						
+							<button> <%= image_tag post.image.url(:large) %> </button>
+						</li>
+
+						<br> 
+						<br>
+
+					<%end%>
+				<%end%>
+			</ul>
+    </div> <!-- END OF COLUMN 1 IN ROW 1 -->
+
+
+
+    <div class = "col-sm-4 customerTesting"> <!-- 2ND COLUMN IN ROW 1 -->
+		<div class = customerTestingText>
+			<p style="color:red;">* Key elements to look for & think about while testing...<p>
 			
+			<ul>
+				<li>
+					Learnability: How easy is it for you to learn to perform the task? For more complicated tasks, are there help features such as hints?
+				</li>
+					<br>
+				<li>
+					Intuitiveness: How obvious and easy is the task to accomplish?
+				</li>
+					<br>	
+				<li>
+					Memorability: How easy is the task to repeat?
+				</li>
+					<br>
+				<li>
+					Affordance: Are interactive elements (such as buttons, links and input text boxes) related to the accomplishment of a task? Is the page that you are brought to expected? If not, what did you expect to be shown?
+				</li>
+					<br>
+				<li>
+					And most importantly, give feedback and let me know where I can improve and what you would like to see within the site.
+				</li>
 
-			
-				<p> Location: <%= post.location%> </p>
-			
-				<br>
-			
-				<%= image_tag post.image.url(:large) %>
-			</li>
+			</ul>
+		</div>
+    </div> <!-- END OF COLUMN 2 IN ROW 1 -->
+  </div> <!-- END OF ROW 1 -->
+ 
+</div>
 
-			<br> 
-			<br>
 
-		<%end%>
-	<%end%>
-</ul>
+
+

@@ -1,6 +1,49 @@
+.adjustHome {
+	position: relative;
+	right: 5%;
+}
+
 .customerTesting {
-	position: absolute;
-    width:40%;
-    text-align:left;
-    left: 50%;
+	border-left: solid black;
+}
+
+
+.customerTestingText {
+	border-left: solid black;
+	position: fixed
+
+}
+
+
+.adjustSocial {
+	position: relative;
+	left: 18%;
+}
+
+
+.adjustSocialLanding {
+	position: relative;
+	left: 18%;
+}
+
+.field, .actions {
+	color:black;
+}
+
+.nobr	{ 
+	float: left; 
+}
+
+.navLinks {
+	position: relative;
+	bottom: 50%;
+}
+
+.picture {
+	background-image: url("https://s3.amazonaws.com/uncoveredpictures/underwater.jpg");
+	height: 500px;
+	width: auto;
+	position: relative;
+	bottom: 54px;
+	
 }
