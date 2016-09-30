@@ -1,16 +1,14 @@
+html {
+   font-style: comic;
+}
+
+body{
+	color: white;
+}
+
 .adjustHome {
 	position: relative;
 	right: 5%;
-}
-
-.customerTesting {
-	border-left: solid black;
-}
-
-
-.customerTestingText {
-	border-left: solid black;
-	position: fixed
 }
 
 
@@ -48,4 +46,21 @@
 
 .pageInfo {
 	background-color:  #0099ff
+}
+
+
+.adjustAdminView {
+	position: relative;
+	left: 500px;
+	color: red;
+}
+
+
+.homePosts {
+	background-color: white;
+	color: black;
+}
+
+.centerThis {
+	text-align: center;
 }

@@ -1,59 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 adjustHome"> <!-- 1ST COLUMN IN ROW 1 -->
-    	<p> Welcome <%= current_user.name %>! </p>
+			<p style="color:skyblue"> <b> Welcome <%= current_user.name %>! <b> </p>
     	
-    	<center>
-    		<h2> Home page </h2>
-
+    	
 		
-			<p> What would you like to see? </p>
-			<p> Please message your response in the chatbox on the bottom-right of the page!</p>
-			<p>(May take a while for it to pop up)</p>
 		
-		</center>
 
 			<% if current_user.role == "admin" %>
+					
 
-					<h2> ALL POSTS </h2>
-                <ul>
-			
-					<% @users.each do |user|%>
-						
-						<% user.pictures.order({ created_at: :desc}).each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+				<center> <h2 style = "color:red"> VIEWING AS ADMIN </h2> </center>
 
-							<li>
-
-								<%= button_to "Delete Post", post, :class => "btn btn-primary btn-sm", 
-									method: :delete,
-                        			data: { confirm: "You sure?" }  
-                        		%>
-
-								<p> This post belongs to 
-									<%= link_to "#{user.name}", "/pictures/#{user.id}" %> 
-								</p>
-								
-
-								<p> Caption: <%= post.caption%> </p>
-							
-
-							
-								<p> Location: <%= post.location%> </p>
-							
-								<br>
-							
-								<button> <%= image_tag post.image.url(:large) %> </button>
-							</li>
-
-							<br> 
-							<br>
-
-						<%end%>
-					<%end%>
-				</ul>
-			
-			<%else%>
-
+		
 				<% users_posts = [] %>
 				
 				<% @users.each do |user|%>
@@ -65,7 +21,8 @@
 					<%end%>
 				<%end%>
 
-					<h3> Explore: </h3>
+					<h3> ALL POSTS: </h3>
+						
 						<%update = []%>
 					
 						<% users_posts.each do |ordered_post|%>
@@ -75,64 +32,103 @@
 						<%end%>
 					<ul>	
 						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
-							<li> 
-							
-								<p> This post belongs to <%= "#{actual_post.user_id}" %> </p>
+							<li class = "nobr"> 
+								<div>
+									<p> This post belongs to 
+										<%= link_to "#{User.find(actual_post.user_id).name}", 
+													"/pictures/#{actual_post.user_id}" %> 
+									</p>
+									
+									<p> Caption: <%= actual_post.caption%> </p>
 								
-								<p> Caption: <%= actual_post.caption%> </p>
-							
-								<p> Location: <%= actual_post.location%> </p>
+									<p> Location: <%= actual_post.location%> </p>
 
-								<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
-							
-								<br>
-								<br>
-							
-								<button> <%= image_tag actual_post.image.url(:large) %> </button>
+									<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
+								
+									<br>
+									<br>
+								
+									 <%= image_tag actual_post.image.url(:large) %> 
+								</div>
 							</li>
-
-							<br> 
-							<br>
 						<%end%>
 					</ul>
 
-			<%end%>
-    </div> <!-- END OF COLUMN 1 IN ROW 1 -->
 
 
 
-    <div class = "col-sm-4 customerTesting"> <!-- 2ND COLUMN IN ROW 1 -->
-		<div class = customerTestingText>
-			<p style="color:red;">* Key elements to look for & think about while testing...<p>
+
 			
-			<ul>
-				<li>
-					Learnability: How easy is it for you to learn to perform the task? For more complicated tasks, are there help features such as hints?
-				</li>
-					<br>
-				<li>
-					Intuitiveness: How obvious and easy is the task to accomplish?
-				</li>
-					<br>	
-				<li>
-					Memorability: How easy is the task to repeat?
-				</li>
-					<br>
-				<li>
-					Affordance: Are interactive elements (such as buttons, links and input text boxes) related to the accomplishment of a task? Is the page that you are brought to expected? If not, what did you expect to be shown?
-				</li>
-					<br>
-				<li>
-					And most importantly, give feedback and let me know where I can improve and what you would like to see within the site.
-				</li>
+<%else%>
+			
+				<% users_posts = [] %>
+				
+				<% @users.each do |user|%>
+						
+					<% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+						
+						<%users_posts.push post%>
 
-			</ul>
-		</div>
-    </div> <!-- END OF COLUMN 2 IN ROW 1 -->
-  </div> <!-- END OF ROW 1 -->
- 
-</div>
+					<%end%>
+				<%end%>
 
+						<%update = []%>
+						<% counter = 0 %>
+						<% users_posts.each do |ordered_post|%>
+							<%update.push ordered_post%>
+							
+							
+						<%end%>
+						
 
+	<div class = "container">
+		<div class = "row">
+			
+			
+			
+			<div class = "col-sm-6">
+						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
+							
+
+							
+								<div class = "row homePosts">
+									<div class = "col-sm-12 centerThis">
+									
+											<p> This post belongs to user#<%= "#{actual_post.user_id}" %> </p>
+										
+											 <p> <%= image_tag actual_post.image.url(:large) %> </p>
+
+												<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#<%= counter%>" aria-expanded="false" aria-controls="collapseExample">
+												  Post Details
+												</button>
+												
+												<div class="collapse" id="<%= counter%>">
+												  <div class="well">
+												    <p> Caption: <%= actual_post.caption%> </p>
+										
+													<p> Location: <%= actual_post.location%> </p>
+
+													<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
+												  </div>
+												</div>
+									
+												<%counter+=1%>
+											 
+									</div> 
+								</div>
+							<br> 
+							<br>
+							<br> 
+							<br>
+						<%end%>
+
+			</div>	<!-- COLUMN OUT -->	
+
+			<div class = "col-sm-6">
+			</div>	
+
+		</div> <!-- ROW OUT
+    </div> <!-- CONTAINER OUT -->
+<%end%>
 
 

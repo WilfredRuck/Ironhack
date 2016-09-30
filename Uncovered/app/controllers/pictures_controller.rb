@@ -17,16 +17,26 @@ class PicturesController < ApplicationController
   	@picture_entry = current_user.pictures.build(picture_entry_params)
 
     if @picture_entry.save
-      flash = { success: "It worked!", error: "It failed." }
+      flash[:success] = "Success!"
+      flash.discard
       redirect_to root_url
     else
+      flash[:error] =  "Form Submission Failed.  Please Try Again."
+      flash.discard
       render 'new'
     end
   				
   end
 
   def show
-  	@user = User.find(current_user.id)
+     if current_user.role == "admin"
+        @user = User.find_by(id: params[:id])
+        if @user == nil
+          @user = current_user
+        end
+     else
+        @user = current_user 
+      end   
   end
 
   def edit
@@ -39,30 +49,24 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+       
 
+      @post = Picture.find(params[:id])
+      @post.destroy
+      
 
-    	@user = current_user
-
-        #Back to normal after trying to get admin priveleges
-      # if @user.id == 1
-        # id = params[:id]
-
-        # @user = User.find(id)
-        # @post = @user.pictures.find(params[:id])
-        # @post.destroy
-        # flash = { success: "Post deleted!", error: "You are not authorized!" }
-        # redirect_to request.referrer || root_url #redirects user to page that requested the delete action
-        #                      #or redirects to Home page if that page is nil
-        # # x = 0
-        # # @users = User.all
-        # # while x < @users
-      # else
-      	@post = @user.pictures.find(params[:id])
-      	@post.destroy
-      	flash = { success: "Post deleted!", error: "You are not authorized!" }
-        redirect_to request.referrer || root_url #redirects user to page that requested the delete action
-        										 #or redirects to Home page if that page is nil
-  
+    if @post.nil?
+      flash[:success] = "Success!"
+      flash.discard
+      redirect_to root_url
+    else
+      flash[:error] =  "You Are Not Authorized!  Please Do Not Try Again."
+      flash.discard
+      redirect_to root_url
+    end
+      #redirects user to page that requested the delete action
+          										 #or redirects to Home page if that page is nil
+      
   end
 
  private 
@@ -72,7 +76,7 @@ class PicturesController < ApplicationController
 
 	def correct_user
       @post = current_user.pictures.find_by(id: params[:id])
-      redirect_to root_url if @post.nil? 
+      redirect_to root_url if @post.nil? && current_user.role != "admin"
   end
 
 end
