@@ -67,6 +67,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    exif (1.0.1)
+    exifr (1.2.5)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -214,6 +216,8 @@ DEPENDENCIES
   aws-sdk (~> 2.3)
   byebug
   devise
+  exif
+  exifr
   jbuilder (~> 2.5)
   jquery-rails
   less-rails
