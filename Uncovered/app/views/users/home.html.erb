@@ -21,7 +21,7 @@
 					<%end%>
 				<%end%>
 
-					<h3> ALL POSTS: </h3>
+					<h3 class="white"> ALL POSTS: </h3>
 						
 						<%update = []%>
 					
@@ -32,7 +32,7 @@
 						<%end%>
 					<ul>	
 						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
-							<li class = "nobr"> 
+							<li class = "nobr white"> 
 								<div>
 									<p> This post belongs to 
 										<%= link_to "#{User.find(actual_post.user_id).name}", 
@@ -41,8 +41,6 @@
 									
 									<p> Caption: <%= actual_post.caption%> </p>
 								
-									<p> Location: <%= actual_post.location%> </p>
-
 									<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
 								
 									<br>
@@ -94,7 +92,7 @@
 								<div class = "row homePosts">
 									<div class = "col-sm-12 centerThis">
 									
-											<p> This post belongs to user#<%= "#{actual_post.user_id}" %> </p>
+											
 										
 											 <p> <%= image_tag actual_post.image.url(:large) %> </p>
 
@@ -104,10 +102,10 @@
 												
 												<div class="collapse" id="<%= counter%>">
 												  <div class="well">
+
+												  <p> This post belongs to user#<%= "#{actual_post.user_id}" %> </p>
 												    <p> Caption: <%= actual_post.caption%> </p>
 										
-													<p> Location: <%= actual_post.location%> </p>
-
 													<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
 												  </div>
 												</div>

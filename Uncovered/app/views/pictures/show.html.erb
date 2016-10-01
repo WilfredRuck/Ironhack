@@ -2,16 +2,16 @@
 		<h2 class = "adjustAdminView"> VIEWING AS ADMIN </h2>
 	<%end%>
 
-<h3> Here are all your posts, <%= @user.name %>: </h3>
+<h3 class="white"> Here are all your posts, <%= @user.name %>: </h3>
 	
 
-<ul>
 
-	<p> You have <%= @user.pictures.length %> posts. </p>
+
+	<p class="white"> You have <%= @user.pictures.length %> posts. </p>
 	<%if @user.pictures.length != 0%>
 		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
-			<li class = "nobr">
-				<div>
+			
+				<div class="nobr white">
 						<!-- edit button -->
 
 						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-primary btn-xs", 
@@ -19,18 +19,15 @@
 	                        data: { confirm: "You sure?" }  %>
 						
 					<p> Caption: <%= post.caption%> </p>
-					<p> Location: <%= post.location%> </p>
 					<%= image_tag post.image.url(:large) %>
 				</div>
-				<br>
-			</li>
 		<%end%>
 	<%else%>
-		<h1> You Have No Posts Yet</h1>
-		<p class = "nobr"> Would you like to create one!? 
-		<%= button_to "Create A Post!", new_picture_path, :class => "btn btn-default btn-xs", :method => :get %>
-		</p>
+		<h1 class="white"> You Have No Posts Yet</h1>
+		<p class = "white"> Would you like to create one!? </p>
+		
+		<%= button_to "Create A Post!", new_picture_path, :class => "btn btn-success ", :method => :get %>
 	<%end%>
-</ul>
+
 
 

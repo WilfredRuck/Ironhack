@@ -4,7 +4,6 @@ class Picture < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ['image/jpeg']
 
-  validates :caption, :location, :image_file_name, presence:  :true
+  validates :caption, :image_file_name, presence:  :true
   validates_length_of :caption, :maximum => 140
-  validates_length_of :location, :maximum => 20
 end

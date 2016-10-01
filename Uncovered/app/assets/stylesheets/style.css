@@ -3,8 +3,8 @@ html {
 }
 
 body{
-	color: white;
-}
+/*	color: white;
+*/}
 
 .adjustHome {
 	position: relative;
@@ -63,4 +63,17 @@ body{
 
 .centerThis {
 	text-align: center;
+}
+
+.paragraph {
+	position: relative;
+	top: 5.8px;
+}
+
+.white {
+	color: white;
+}
+
+.babyBlue {
+	color:#0099ff;
 }

@@ -53,25 +53,15 @@ class PicturesController < ApplicationController
 
       @post = Picture.find(params[:id])
       @post.destroy
+      redirect_to :back
       
 
-    if @post.nil?
-      flash[:success] = "Success!"
-      flash.discard
-      redirect_to root_url
-    else
-      flash[:error] =  "You Are Not Authorized!  Please Do Not Try Again."
-      flash.discard
-      redirect_to root_url
-    end
-      #redirects user to page that requested the delete action
-          										 #or redirects to Home page if that page is nil
       
   end
 
  private 
 	def picture_entry_params
-	  params.require(:picture).permit(:caption, :location, :image)
+	  params.require(:picture).permit(:caption, :image)
 	end
 
 	def correct_user
