@@ -54,7 +54,7 @@
     
 
 
-    <section class="container paragraph">
+    <section class="container paragraph responsive">
   
         <div class="row">
             <div>
@@ -78,7 +78,7 @@
 
 
     <section>
-        <div class="container">
+        <div class="container responsive">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading white">Your feedback is much appreciated!</h2>
@@ -133,6 +133,11 @@
                       <div class="field">
                         <%= f.label :email %><br />
                         <%= f.email_field :email %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :username %><br />
+                        <%= f.text_field :username %>
                       </div>
 
                       <div class="field">
@@ -200,6 +205,7 @@
                         <center>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <%= f.submit "Log in", class: "btn btn-primary" %>
+                            <%= link_to "Forgot Password", new_user_password_path %>
                         </center>
                     </div>
                     

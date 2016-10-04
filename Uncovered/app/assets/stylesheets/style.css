@@ -1,10 +1,4 @@
-html {
-   font-style: comic;
-}
 
-body{
-/*	color: white;
-*/}
 
 .adjustHome {
 	position: relative;
@@ -77,3 +71,59 @@ body{
 .babyBlue {
 	color:#0099ff;
 }
+
+.adjustPicture {
+	position: relative;
+	right: 15px;
+}
+
+.googleMaps {
+	position: fixed;
+	right: 0;
+}
+
+.registrationBackground {
+	background-image: url("sky2.jpg");
+/*	background-repeat: no-repeat;*/
+	background-size: 100%;
+}
+
+./*homeBackground {
+	background-image: url("sky.jpg");
+	background-size: 100%;
+}*/
+
+.responsive {   /*MAKES STUFF RESPONSIVE*/
+	max-width: 100%;
+	height: auto;
+}
+
+* {
+font-family: 'Monda', sans-serif; /*DONDA*/
+}
+
+
+
+
+/*GOOGLE FONTS*/
+font-family: 'Lalezar', cursive; /*NO*/
+font-family: 'Montserrat', sans-serif; /*MAYBE FOR LOGO*/
+font-family: 'Oswald', sans-serif; /*YES FOR LOGO, MAYBE TEXT*/
+font-family: 'Raleway', sans-serif; /*MAYBE FOR BOTH*/
+font-family: 'Roboto Condensed', sans-serif; /*NO*/
+font-family: 'Shrikhand', cursive; /*NO*/
+font-family: 'Playfair Display', serif; /*YES FOR LOGO*/
+font-family: 'Pathway Gothic One', sans-serif; /*No*/
+font-family: 'Didact Gothic', sans-serif; /*NO*/
+font-family: 'Carrois Gothic SC', sans-serif; /*I LIKE THIS ALOT BUT ALL CAPS*/
+font-family: 'Sirin Stencil', cursive; /*NO*/
+font-family: 'Allerta Stencil', sans-serif; /*NO*/
+font-family: 'Stardos Stencil', cursive; /*NO*/
+font-family: 'Roboto Mono', monospace; /*HELL NO*/
+font-family: 'BioRhyme', serif; /*NO*/
+font-family: 'Russo One', sans-serif; /*MAYBE FOR LOGO*/
+font-family: 'Philosopher', sans-serif; /*MAYBE*/
+font-family: 'Monda', sans-serif; /*DONDA*/
+font-family: 'Cormorant SC', serif; /*TOO FANCY*/
+font-family: 'Modern Antiqua', cursive; /*NO*/
+/*END OF FONTS*/

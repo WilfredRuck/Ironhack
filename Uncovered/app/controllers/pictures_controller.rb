@@ -61,7 +61,7 @@ class PicturesController < ApplicationController
 
  private 
 	def picture_entry_params
-	  params.require(:picture).permit(:caption, :image)
+	  params.require(:picture).permit(:caption, :image, :location)
 	end
 
 	def correct_user

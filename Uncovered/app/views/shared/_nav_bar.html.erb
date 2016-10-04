@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top navbar-light bg-faded" style="background-color:black">
+<nav class="navbar navbar-fixed-top" style="background-color:black">
       
         <div class="row" style="color:white">
       
@@ -6,7 +6,7 @@
 
             <%= button_to "Home", root_path, :class => "btn btn-primary icon-home nobr", :method => :get %>
 
-            <%= button_to "Your Profile", "/pictures/#{current_user.name}", :class => "btn btn-primary nobr", :method => :get %>
+            <%= button_to "Your Profile", "/pictures/#{current_user.username}", :class => "btn btn-primary nobr", :method => :get %>
 
             <%= button_to "Make A Post", new_picture_path, :class => "btn btn-primary nobr", :method => :get %>
 

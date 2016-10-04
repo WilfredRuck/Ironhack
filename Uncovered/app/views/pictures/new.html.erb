@@ -12,6 +12,12 @@
 
 	<br>
 	<br>
+
+	<%= f.label :location, :class => "white" %> <i class="white"> (max:50)</i> <br>
+	<%= f.text_field :location, placeholder: " As specific as possible" %>
+
+	<br>
+	<br>
 	
 	 <%= f.submit "Post Picture", class: "btn btn-success" %>
 <%end%>

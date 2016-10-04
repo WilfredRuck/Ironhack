@@ -2,25 +2,50 @@
 		<h2 class = "adjustAdminView"> VIEWING AS ADMIN </h2>
 	<%end%>
 
-<h3 class="white"> Here are all your posts, <%= @user.name %>: </h3>
+<h3 class="white"> Here are all your posts, <%= @user.username %>: </h3>
 	
 
 
 
-	<p class="white"> You have <%= @user.pictures.length %> posts. </p>
-	<%if @user.pictures.length != 0%>
+	
+	<%if @user.pictures.length == 1%>
+		<p class="white"> You have <%= @user.pictures.length%> post. Go make some more! </p>
+
 		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
 			
 				<div class="nobr white">
 						<!-- edit button -->
-
-						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-primary btn-xs", 
+						<br><br><br><br><br>
+						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-danger btn-xs", 
 							method: :delete,
 	                        data: { confirm: "You sure?" }  %>
 						
 					<p> Caption: <%= post.caption%> </p>
-					<%= image_tag post.image.url(:large) %>
+					<p> Location: <%= post.location%> </p>
+
+					<%= image_tag post.image.url(:large) %> 
 				</div>
+
+		<%end%>
+	
+	<%elsif @user.pictures.length > 1%>
+		<p class="white"> You have <%= @user.pictures.length %> posts.</p>
+
+		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
+			
+				<div class="nobr white">
+						<!-- edit button -->
+						<br><br><br><br><br>
+						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-danger btn-xs", 
+							method: :delete,
+	                        data: { confirm: "You sure?" }  %>
+						
+					<p> Caption: <%= post.caption%> </p>
+					<p> Location: <%= post.location%> </p>
+
+					<%= image_tag post.image.url(:large) %> 
+				</div>
+
 		<%end%>
 	<%else%>
 		<h1 class="white"> You Have No Posts Yet</h1>

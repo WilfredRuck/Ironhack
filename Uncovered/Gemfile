@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate', '~> 3.1.0'
 gem 'exifr'
 gem 'exif'
-gem 'less-rails'
 gem "twitter-bootstrap-rails"
-gem 'materialize-sass'
 gem 'sprockets-es6'
 gem 'aws-sdk', '~> 2.3'
 gem 'paperclip'
