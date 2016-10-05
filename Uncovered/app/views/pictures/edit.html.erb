@@ -1,20 +1,16 @@
-<h1>Update your post</h1>
+<center>
+  <h2 class="white">Update your post</h2>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@post) do |f| %>
-      <%= render 'shared/error_messages' %>
 
-      <%= f.label :caption %>
-      <%= f.text_area :caption, class: 'form-control' %>
+      <%= form_for(@post) do |f| %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.label :caption, :class => "white" %> <br>
+        <%= f.text_area :caption, :autofocus=>true %> <br>
 
-    <% end %>
+        <%= f.label :location, :class => "white" %> <br>
+        <%= f.text_field :location%> <br>
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @post %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
-  </div>
-</div>
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+
+      <% end %>
+</center>

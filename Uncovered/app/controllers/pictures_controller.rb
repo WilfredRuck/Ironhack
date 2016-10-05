@@ -1,10 +1,23 @@
 class PicturesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :correct_user, only: [:destroy] 
+	before_action :correct_user, only: [:destroy, :edit] 
 
  
 
  # CANT CREATE A NEW POST/PICTURE. CANT GET USERID TO ASSOSIATE IT TO THEIR ACCOUNT
+
+  def upvote
+    @picture = Picture.find(params[:id])
+    @picture.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @picture = Picture.find(params[:id])
+    @picture.downvote_from current_user
+    redirect_to :back
+  end
+
 
 
   def new
@@ -40,23 +53,25 @@ class PicturesController < ApplicationController
   end
 
   def edit
-  	
-  	puts"--------------------------"
-  	@post = current_user.pictures.find(params[:id])
-  	p @post
-  	puts"--------------------------"
-
+  	@post = Picture.find(params[:id])
   end
 
-  def destroy
-       
+  def update
+    @post = Picture.find(params[:id])
 
-      @post = Picture.find(params[:id])
-      @post.destroy
-      redirect_to :back
-      
+    @post.update(
+                caption: params[:picture][:caption]
+                )
+    redirect_to picture_path
+  end
 
-      
+
+ 
+
+  def destroy  
+    @post = Picture.find(params[:id])
+    @post.destroy
+    redirect_to :back 
   end
 
  private 

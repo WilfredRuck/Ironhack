@@ -1,23 +1,25 @@
-<h2 class="white">Input the required fields to post a new picture! </h2>
+<body class="createPostBackground centerThis">
+	<h2 class="white">Input the required fields to post a new picture! </h2>
 
-<%= form_for @picture_entry, text_field: { multipart: true } do |f| %>
-	<%= f.label :image, :class => "white" %> <i class="white">(Image must be JPEG)</i>
-	<%= f.file_field :image, :class => "white" %>
+	<%= form_for @picture_entry, text_field: { multipart: true } do |f| %>
+		<%= f.label :image, :class => "white" %> <i class="white">(Image must be JPEG)</i>
+		<%= f.file_field :image, :class => "white centerThis" %>
 
-	<br>
-	<br>
+		<br>
+		<br>
 
-	<%= f.label :caption, :class => "white" %> <i class="white"> (max:140)</i> <br>
-	<%= f.text_area :caption, placeholder: "Create a caption..." %>
+		<%= f.label :caption, :class => "white" %> <i class="white"> (max:140)</i> <br>
+		<%= f.text_area :caption, placeholder: "Create a caption..." %>
 
-	<br>
-	<br>
+		<br>
+		<br>
 
-	<%= f.label :location, :class => "white" %> <i class="white"> (max:50)</i> <br>
-	<%= f.text_field :location, placeholder: " As specific as possible" %>
+		<%= f.label :location, :class => "white" %> <i class="white"> (max:50)</i> <br>
+		<%= f.text_field :location, placeholder: " As specific as possible" %>
 
-	<br>
-	<br>
-	
-	 <%= f.submit "Post Picture", class: "btn btn-success" %>
-<%end%>
+		<br>
+		<br>
+		
+		 <%= f.submit "Post Picture", class: "btn btn-success" %>
+	<%end%>
+</body>

@@ -1,5 +1,6 @@
 class Picture < ApplicationRecord
 	belongs_to :user
+	acts_as_votable
 	has_attached_file :image, styles: { regular: "400x400!", large: "585x500!" }
 
 	validates_attachment_content_type :image, :content_type => ['image/jpeg']

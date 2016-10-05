@@ -2,10 +2,26 @@
 		<h2 class = "adjustAdminView"> VIEWING AS ADMIN </h2>
 	<%end%>
 
-<h3 class="white"> Here are all your posts, <%= @user.username %>: </h3>
-	
-
-
+<h3 style="color:white"> Here are all your posts, <%= @user.username %>: </h3>	
+	<%if current_user.role == "admin" && params[:id] != "Swill" && params[:id] != "1" %>
+			<center style="color:red">
+				<h4> Enter any comments to this user here:</h4>
+				
+				<form class="form-inline">
+					  <div class="form-group">
+					    <label for="exampleInputName2">Type Of Warning</label>
+					    <input type="text" class="form-control" id="exampleInputName2">
+					  </div>
+					
+					  <div class="form-group">
+					    <label for="exampleInputEmail2">Description</label>
+					    <input type="text-field" class="form-control" id="exampleInputEmail2">
+					  </div>
+					  <button type="submit" class="btn btn-warning">Send Warning</button>
+				</form>
+				
+			</center>
+	<%end%>
 
 	
 	<%if @user.pictures.length == 1%>
@@ -16,9 +32,15 @@
 				<div class="nobr white">
 						<!-- edit button -->
 						<br><br><br><br><br>
-						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-danger btn-xs", 
+					
+						<%= button_to "Edit Post", edit_picture_path(post), :class => "btn btn-primary btn-xs", 
+							:method => :get
+	                        %>
+
+	                    <%= button_to "Delete Post", picture_path(post), :class => "btn btn-danger btn-xs", 
 							method: :delete,
 	                        data: { confirm: "You sure?" }  %>
+					
 						
 					<p> Caption: <%= post.caption%> </p>
 					<p> Location: <%= post.location%> </p>
@@ -36,6 +58,11 @@
 				<div class="nobr white">
 						<!-- edit button -->
 						<br><br><br><br><br>
+						
+						<%= button_to "Edit Post", edit_picture_path(post), :class => "btn btn-primary btn-xs", 
+							:method => :get
+	                        %>
+
 						<%= button_to "Delete Post", picture_path(post), :class => "btn btn-danger btn-xs", 
 							method: :delete,
 	                        data: { confirm: "You sure?" }  %>
