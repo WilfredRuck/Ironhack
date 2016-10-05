@@ -7,15 +7,16 @@ class PicturesController < ApplicationController
  # CANT CREATE A NEW POST/PICTURE. CANT GET USERID TO ASSOSIATE IT TO THEIR ACCOUNT
 
   def upvote
+    # $(`js-count-${data.picture_id}`).html(data.upvotes);
     @picture = Picture.find(params[:id])
     @picture.liked_by current_user
-    redirect_to :back
-  end
+    render json: { picture_id: @picture.id, upvotes: @picture.get_upvotes.size }
+   end
 
   def downvote
     @picture = Picture.find(params[:id])
     @picture.downvote_from current_user
-    redirect_to :back
+    render json: { picture_id: @picture.id, upvotes: @picture.get_upvotes.size }
   end
 
 
@@ -29,6 +30,24 @@ class PicturesController < ApplicationController
   def create
   	@picture_entry = current_user.pictures.build(picture_entry_params)
 
+    # puts ""
+    # puts ""
+    # puts "~~~~~~~~~~  hi    ~~~~~~~~~~~~~~~~~~~~~~"
+    # p params[:picture][:image].tempfile.path
+    # puts ""
+    # puts ""
+    if (params[:picture][:image]) != nil
+      exifr_result = EXIFR::JPEG.new(params[:picture][:image].tempfile)
+      @picture_entry.camera_model = exifr_result.model
+      @picture_entry.date = exifr_result.date_time
+      @picture_entry.has_geo = false
+      
+      if exifr_result.gps != nil
+        @picture_entry.has_geo = true
+        @picture_entry.latitude = exifr_result.gps.latitude
+        @picture_entry.longitude = exifr_result.gps.longitude
+      end
+    end
     if @picture_entry.save
       flash[:success] = "Success!"
       flash.discard

@@ -44,17 +44,24 @@
 									<p> Location: <%= actual_post.location%> </p>
 								
 									<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
+                  
+                  <% if actual_post.camera_model != nil %>
+                    <p> Model: <%= actual_post.camera_model %> </p>
+                  <%else%>
+                    <p> Model: Unknown </p>
+                  <%end%>
 
-                  <p> Model : <%= EXIFR::JPEG.new(actual_post.image.path).model %> </p>
 
-                  <p> Picture Path: <%= actual_post.image.path%> </p>
+                  <%if actual_post.has_geo == true%>
+                    <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> %> </p>
+                  <%end%>
 
 
-                    <%= link_to "Like", like_picture_path(actual_post), method: :put %>
+                    <%= link_to "Like", like_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
                           
-                    <%= actual_post.get_upvotes.size %>
-                          
-                    <%= link_to "Unlike", dislike_picture_path(actual_post), method: :put %>
+                    <span class="js-count-<%= actual_post.id %>"> <%= actual_post.get_upvotes.size %> </span>
+
+                    <%= link_to "Unlike", dislike_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
 								
 									<br>
 									<br>
@@ -116,7 +123,7 @@
   												  Post Details
   												</button>
 
-                          <%= link_to "Like", like_picture_path(actual_post), method: :put %>
+                          <%= link_to "Like", like_picture_path(actual_post), method: :put, :class => "js-like-button active" %>
                           
                           <%= actual_post.get_upvotes.size %>
                           
@@ -167,13 +174,29 @@
 													
 													<% @pic = actual_post.image%>
 												  <p> User: <%=User.find(actual_post.user_id).username.capitalize %>
-												    <p> Caption: <%= actual_post.caption%> </p>
-										
-													<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
+												  
+                          <p> Caption: <%= actual_post.caption%> </p>
 
-													<p> Location: <%= actual_post.location%> </p>
+                          <p> Location: <%= actual_post.location%> </p>
+                
+                          <p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
+                  
+                          <% if actual_post.camera_model != nil %>
+                          
+                            <p> Model: <%= actual_post.camera_model %> </p>
+                          
+                          <%else%>
+                          
+                            <p> Model: Unknown </p>
+                          
+                          <%end%>
 
-                          <p> Model : <%= EXIFR::JPEG.new(actual_post.image.path).model %> </p>
+                          
+                          <%if actual_post.has_geo == true%>
+                          
+                            <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> %> </p>
+                          
+                          <%end%>
 
 													<%if User.find(actual_post.user_id) == current_user%>
 														<%= button_to "Edit Post", edit_picture_path(actual_post), :class => "btn btn-primary btn-xs", 

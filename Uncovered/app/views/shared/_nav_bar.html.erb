@@ -2,21 +2,21 @@
       
         <div class="row" style="color:white">
       
-          <div class="col-sm-5 navLinks">
+          <div class="col-sm-4 navLinks">
 
-            <%= button_to "Home", root_path, :class => "btn btn-primary icon-home nobr", :method => :get %>
+            <%= button_to "Home", root_path, :class => "btn-xs btn-primary icon-home nobr", :method => :get %>
 
-            <%= button_to "Your Profile", "/pictures/#{current_user.username}", :class => "btn btn-primary nobr", :method => :get %>
+            <%= button_to "Your Profile", "/pictures/#{current_user.username}", :class => "btn-xs btn-primary nobr", :method => :get %>
 
-            <%= button_to "Make A Post", new_picture_path, :class => "btn btn-primary nobr", :method => :get %>
+            <%= button_to "Make A Post", new_picture_path, :class => "btn-xs btn-primary nobr", :method => :get %>
 
-            <%= button_to "Edit Account", edit_user_registration_path, :class => "btn btn-primary nobr", :method => :get %>
+            <%= button_to "Edit Account", edit_user_registration_path, :class => "btn-xs btn-primary nobr", :method => :get %>
 
-            <%= button_to "Logout", destroy_user_session_path, :class => "btn btn-primary nobr", :method => :delete %>
+            <%= button_to "Logout", destroy_user_session_path, :class => "btn-xs btn-primary nobr", :method => :delete %>
 
           </div>
             
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <font size="+3.5"><center>UNCOVERED</center></font>
           </div>
 

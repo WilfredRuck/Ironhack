@@ -1,8 +1,9 @@
+<body>
 <%if current_user.role == "admin" %>
-		<h2 class = "adjustAdminView"> VIEWING AS ADMIN </h2>
+		<h2 class = "adjustAdminView refont"> VIEWING AS ADMIN </h2>
 	<%end%>
 
-<h3 style="color:white"> Here are all your posts, <%= @user.username %>: </h3>	
+<h3 class="refont centerThis" style="color:white"> Here are all your posts, <%= @user.username %>: </h3>	
 	<%if current_user.role == "admin" && params[:id] != "Swill" && params[:id] != "1" %>
 			<center style="color:red">
 				<h4> Enter any comments to this user here:</h4>
@@ -25,7 +26,7 @@
 
 	
 	<%if @user.pictures.length == 1%>
-		<p class="white"> You have <%= @user.pictures.length%> post. Go make some more! </p>
+		<p class="white centerThis"> You have <%= @user.pictures.length%> post. Go make some more! </p>
 
 		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
 			
@@ -51,11 +52,11 @@
 		<%end%>
 	
 	<%elsif @user.pictures.length > 1%>
-		<p class="white"> You have <%= @user.pictures.length %> posts.</p>
+		<p class="white centerThis"> You have <%= @user.pictures.length %> posts.</p>
 
 		<% @user.pictures.order({ created_at: :desc}).each do |post| %>
 			
-				<div class="nobr white">
+				<div class="nobr white centerThis">
 						<!-- edit button -->
 						<br><br><br><br><br>
 						
@@ -70,7 +71,7 @@
 					<p> Caption: <%= post.caption%> </p>
 					<p> Location: <%= post.location%> </p>
 
-					<%= image_tag post.image.url(:large) %> 
+					<%= image_tag post.image.url(:large), :class => "moveShow" %> 
 				</div>
 
 		<%end%>
@@ -83,3 +84,4 @@
 
 
 
+</body>
