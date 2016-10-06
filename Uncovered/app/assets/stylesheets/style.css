@@ -108,14 +108,8 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	right: 0;
 }
 
-.registerBackground {
-	background-image: url("home3.jpg"); 
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 .createPostBackground {
-	background-image: url("spark.jpg");
+	background-image: url("https://s3.amazonaws.com/uncoveredpictures/spark.jpeg");
 	background-size: cover;
 }
 
@@ -143,12 +137,12 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 }
 
 .homePostsBackground {
-	background-image: url("home2.jpg");
-	background-size: 100vh;
+	/*background-image: url("home2.jpg");
+	background-size: 100vh;*/
 }
 
 .register {
-	background-image: url("home3.jpg");
+	background-image: url("https://s3.amazonaws.com/uncoveredpictures/home3.jpeg");
 	background-size: 100vh;
 }
 
