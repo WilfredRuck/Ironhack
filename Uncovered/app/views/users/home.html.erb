@@ -177,7 +177,11 @@
 												  
                           <p> Caption: <%= actual_post.caption%> </p>
 
-                          <p> Location: <%= actual_post.location%> </p>
+                          <%if actual_post.has_geo == false%>
+
+                            <p> Location: <%= actual_post.location%> </p>
+
+                          <%end%>
                 
                           <p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
                   
@@ -194,7 +198,7 @@
                           
                           <%if actual_post.has_geo == true%>
                           
-                            <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> %> </p>
+                            <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> </p>
                           
                           <%end%>
 

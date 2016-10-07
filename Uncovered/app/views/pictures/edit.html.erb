@@ -1,16 +1,18 @@
-<center>
-  <h2 class="white">Update your post</h2>
+<body class="editPostBackground">
+	<center>
+	  <h2 class="shadowing">Update your post</h2>
 
 
-      <%= form_for(@post) do |f| %>
+	      <%= form_for(@post) do |f| %>
 
-        <%= f.label :caption, :class => "white" %> <br>
-        <%= f.text_area :caption, :autofocus=>true %> <br>
+	        <%= f.label :caption, :class => "white" %> <br>
+	        <%= f.text_area :caption, :autofocus=>true %> <br>
 
-        <%= f.label :location, :class => "white" %> <br>
-        <%= f.text_field :location%> <br>
+	        <%= f.label :location, :class => "white" %> <br>
+	        <%= f.text_field :location%> <br>
 
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+	        <%= f.submit "Save changes", class: "btn btn-primary" %>
 
-      <% end %>
-</center>
+	      <% end %>
+	</center>
+</body>

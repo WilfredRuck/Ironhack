@@ -36,7 +36,10 @@ class PicturesController < ApplicationController
     # p params[:picture][:image].tempfile.path
     # puts ""
     # puts ""
-    if (params[:picture][:image]) != nil
+    if (params[:picture][:image]) != nil &&
+       (params[:picture][:image]).to_s.include?(".jpg") && 
+       (params[:picture][:image]).to_s.include?(".jpeg")
+       
       exifr_result = EXIFR::JPEG.new(params[:picture][:image].tempfile)
       @picture_entry.camera_model = exifr_result.model
       @picture_entry.date = exifr_result.date_time

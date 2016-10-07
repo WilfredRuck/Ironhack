@@ -1,11 +1,23 @@
 <body class="createPostBackground">
-	<h2 class="white refont">Input the required fields to post a new picture! </h2>
+	<% if @picture_entry.errors.any? %>
+			<ul>
+				<% @picture_entry.errors.full_messages.each do |msg| %>
+			    	<li style="color:red" class="errorMessage"><%= msg %></li>
+ 			  	<% end %>
+			</ul>
+	<% end %>
+	
+	<h2 class="refont shadowing">Input the required fields to post a new picture! </h2>
 	<br>
 	<br>
+	
 	<%= form_for @picture_entry, text_field: { multipart: true } do |f| %>
+	
 		<%= f.label :image, :class => "white" %> <i class="white">(Image must be JPEG)</i>
-		<%= f.file_field :image, :class => "white centerThis" %>
-
+		<p class="fileInput">
+			<%= f.file_field :image, :class => "white centerThis" %>
+		</p>
+		
 		<br>
 		<br>
 
@@ -23,4 +35,6 @@
 		
 		 <%= f.submit "Post Picture", class: "btn btn-success" %>
 	<%end%>
+
+	
 </body>

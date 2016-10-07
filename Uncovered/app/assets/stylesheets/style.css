@@ -61,12 +61,12 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	width: auto;
 	position: relative;
 	background-size: cover;
-	bottom: 24px;
+	bottom: 50px;
 	z-index: 0;
 }
 
 .pageInfo {
-	background-color:  #0099ff
+	background-color:  #0099ff;
 }
 
 
@@ -87,7 +87,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 
 .paragraph {
 	position: relative;
-	top: 5.8px;
+	bottom: 5px;
 }
 
 .white {
@@ -95,7 +95,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 }
 
 .babyBlue {
-	color:#0099ff;
+	color:#428bca;
 }
 
 .adjustPicture {
@@ -109,8 +109,12 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 }
 
 .createPostBackground {
-	background-image: url("https://s3.amazonaws.com/uncoveredpictures/spark.jpeg");
+	background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)),
+	url("https://s3.amazonaws.com/uncoveredpictures/lens.jpeg");
 	background-size: cover;
+	text-align: center;
 }
 
 .responsive {   /*MAKES STUFF RESPONSIVE*/
@@ -136,16 +140,28 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	left: 45px;
 }
 
-.homePostsBackground {
-	/*background-image: url("home2.jpg");
-	background-size: 100vh;*/
+.editPostBackground {
+	background-image: url("https://s3.amazonaws.com/uncoveredpictures/website1.jpg");
+	background-size: cover;
+}
+
+.editAccountBackground {
+	background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)),
+	url("https://s3.amazonaws.com/uncoveredpictures/film.jpg");
+	background-size: cover;
+	text-align: center
 }
 
 .register {
-	background-image: url("https://s3.amazonaws.com/uncoveredpictures/home3.jpeg");
-	background-size: 100vh;
-	height: 50px;
-	
+	background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)),
+	url("https://s3.amazonaws.com/uncoveredpictures/website2.jpg");
+	background-size: cover;
+/*	height: 50px;
+*/	
 }
 
 .signUp {
@@ -156,3 +172,23 @@ body {
 	padding-top: 1%;
 }
 
+.shadowing {
+	color: white;
+	text-shadow: 3px 3px 0px #000;
+	font-weight: 900;
+}
+
+.moveUp {
+	position: relative;
+	bottom: 60px;
+}
+
+.fileInput {
+  position: relative;
+  left: 550px;
+}
+
+.errorMessage {
+	text-shadow: 3px 3px 0px #000;
+	font-weight: 900;
+}

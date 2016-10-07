@@ -1,11 +1,13 @@
 <body class="register">
   
-  <center>
+  <center class="moveUp">
+  <div class= "shadowing">
+  
     <h2 class="signUp">Sign up</h2>
-
+ 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      
+      <%= devise_error_messages!%>
+       </div>
       <div class="field">
         <%= f.label :name, :class => "white" %> <br>
         <%= f.text_field :name, autofocus: true %><br>
@@ -36,14 +38,11 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn btn-success" %>
+        <%= f.submit "Sign up", class: "btn-lg btn-success" %>
+    <% end %>  
+      <%= button_to "Back", root_path, :class => "btn btn-primary", :method => :get %>
+
       </div>
-    <% end %>
-
-    <br>
-
-    <%= button_to "Back", root_path, :class => "btn btn-primary", :method => :get %>
-
-    <br>
+    
   </center>
 </body>

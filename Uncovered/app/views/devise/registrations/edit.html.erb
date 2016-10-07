@@ -1,42 +1,60 @@
-<h2 class="white refont">Edit <%= resource_name.to_s.humanize %></h2>
+ <body class="editAccountBackground"> 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <p class="white"><%= f.label :email %><br /> </p>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <h2 class="white refont">Edit <%= resource_name.to_s.humanize %></h2>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <p class="white"><%= f.label :email %><br /> </p>
+      <%= f.email_field :email, autofocus: true %> 
+    </div> 
+
+    <br>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :current_password, :class => "white"  %> <i class="white">(we need your current password to make changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %> 
+    </div>
+
+     <br>
+
+    <div class="field">
+      <%= f.label :password, :class => "white" %> <i class="white">(Type in new password or leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %> </p>
+      <% if @minimum_password_length %>
+        <br />
+        <em class="white"><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, :class => "white" %><br />
+      <p style="color:black"> <%= f.password_field :password_confirmation, autocomplete: "off" %> </p>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :current_password, :class => "white"  %> <i class="white">(we need your current password to make changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  <div class="field">
-    <%= f.label :password, :class => "white" %> <i class="white">(Type in new password or leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %> </p>
-    <% if @minimum_password_length %>
-      <br />
-      <em class="white"><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, :class => "white" %><br />
-    <p style="color:black"> <%= f.password_field :password_confirmation, autocomplete: "off" %> </p>
-  </div>
+  <p class="white">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name),:class => "btn-sm btn-danger" , data: { confirm: "Are you sure? We'd hate to see you go!" }, method: :delete %></p>
 
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3 class="white refont">Cancel my account</h3>
-
-<p class="white">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name),:class => "btn btn-danger" , data: { confirm: "Are you sure? We'd hate to see you go!" }, method: :delete %></p>
+</body>
