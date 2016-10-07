@@ -123,11 +123,11 @@
   												  Post Details
   												</button>
 
-                          <%= link_to "Like", like_picture_path(actual_post), method: :put, :class => "js-like-button active" %>
+                          <%= link_to "Like", like_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
                           
-                          <%= actual_post.get_upvotes.size %>
-                          
-                          <%= link_to "Unlike", dislike_picture_path(actual_post), method: :put %>
+                          <span class="js-count-<%= actual_post.id %>"> <%= actual_post.get_upvotes.size %> </span>
+
+                          <%= link_to "Unlike", dislike_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
 
                      
 

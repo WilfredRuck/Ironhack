@@ -45,6 +45,7 @@
 						
 					<p> Caption: <%= post.caption%> </p>
 					<p> Location: <%= post.location%> </p>
+					<p> Likes: <%= post.get_upvotes.size %> </p>
 
 					<%= image_tag post.image.url(:large) %> 
 				</div>

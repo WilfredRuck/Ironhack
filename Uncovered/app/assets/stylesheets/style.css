@@ -26,6 +26,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 
 
 
+
 .adjustHome {
 	position: relative;
 	right: 5%;
@@ -33,14 +34,12 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 
 
 .adjustSocial {
-	position: relative;
-	left: 18%;
+	text-align: right;
 }
 
 
 .adjustSocialLanding {
-	position: relative;
-	left: 18%;
+	text-align: right;
 }
 
 .field, .actions {
@@ -57,11 +56,13 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 }
 
 .picture {
-	background-image: url("https://s3.amazonaws.com/uncoveredpictures/underwater.jpg");
+	background-image: url("https://s3.amazonaws.com/uncoveredpictures/home3.jpeg");
 	height: 600px;
 	width: auto;
 	position: relative;
-	bottom: 64px;
+	background-size: cover;
+	bottom: 24px;
+	z-index: 0;
 }
 
 .pageInfo {
@@ -70,8 +71,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 
 
 .adjustAdminView {
-	position: relative;
-	left: 500px;
+	text-align: center;
 	color: red;
 }
 
@@ -144,9 +144,15 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 .register {
 	background-image: url("https://s3.amazonaws.com/uncoveredpictures/home3.jpeg");
 	background-size: 100vh;
+	height: 50px;
+	
 }
 
 .signUp {
 	text-shadow: 20%;
+}
+
+body {
+	padding-top: 1%;
 }
 
