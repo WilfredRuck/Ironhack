@@ -33,8 +33,10 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 }
 
 
-.adjustSocial {
-	text-align: right;
+.moveLinks {
+	float: right;
+	position: relative;
+	top : 7px;
 }
 
 
@@ -52,7 +54,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 
 .navLinks {
 	position: relative;
-	bottom: 50%;
+	top : 7px;
 }
 
 .picture {
@@ -191,4 +193,9 @@ body {
 .errorMessage {
 	text-shadow: 3px 3px 0px #000;
 	font-weight: 900;
+}
+
+.landingButton {
+	position: relative;
+	top: 5px;
 }

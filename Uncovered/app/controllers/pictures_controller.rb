@@ -74,7 +74,7 @@ class PicturesController < ApplicationController
       end   
   end
 
-  def edit
+  def edit #MAKE THIS BACKGROUND, THE PICTURE IT IS EDITING
   	@post = Picture.find(params[:id])
   end
 
