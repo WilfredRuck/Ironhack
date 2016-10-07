@@ -117,6 +117,7 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	url("https://s3.amazonaws.com/uncoveredpictures/lens.jpeg");
 	background-size: cover;
 	text-align: center;
+
 }
 
 .responsive {   /*MAKES STUFF RESPONSIVE*/
@@ -186,8 +187,8 @@ body {
 }
 
 .fileInput {
-  position: relative;
-  left: 550px;
+	position: absolute;
+	left: 550px;
 }
 
 .errorMessage {
@@ -198,4 +199,10 @@ body {
 .landingButton {
 	position: relative;
 	top: 5px;
+}
+
+li {
+	list-style-type: none;
+	position: relative;
+	right: 20px;
 }

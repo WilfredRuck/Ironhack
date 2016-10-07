@@ -1,6 +1,6 @@
 <body class="register">
   
-  <center class="moveUp">
+  <div class="moveUp centerThis">
   <div class= "shadowing">
   
     <h2 class="signUp">Sign up</h2>
@@ -38,11 +38,11 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: "btn-lg btn-success" %>
+        <%= f.submit "Sign up", class: "btn-lg btn-success" %> <br>
     <% end %>  
-      <%= button_to "Back", root_path, :class => "btn btn-primary", :method => :get %>
-
+      
+      <%= link_to "Already a user?", root_path %>
       </div>
     
-  </center>
+  </div>
 </body>
