@@ -1,4 +1,3 @@
-<body>
 <%if current_user.role == "admin" %>
 		<h2 class = "adjustAdminView refont"> VIEWING AS ADMIN </h2>
 	<%end%>
@@ -82,7 +81,3 @@
 		
 		<%= button_to "Create A Post!", new_picture_path, :class => "btn btn-success ", :method => :get %>
 	<%end%>
-
-
-
-</body>

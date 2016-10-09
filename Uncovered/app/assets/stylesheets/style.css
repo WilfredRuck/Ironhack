@@ -100,14 +100,13 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	color:#428bca;
 }
 
-.adjustPicture {
+/*.adjustPicture {
 	position: relative;
 	right: 15px;
-}
+}*/
 
 .googleMaps {
-	position: fixed;
-	right: 0;
+	
 }
 
 .createPostBackground {
@@ -117,13 +116,11 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	url("https://s3.amazonaws.com/uncoveredpictures/lens.jpeg");
 	background-size: cover;
 	text-align: center;
-
+	background-repeat: no-repeat;
+	height: 100vh;
 }
 
-.responsive {   /*MAKES STUFF RESPONSIVE*/
-	max-width: 100%;
-	height: auto;
-}
+
 
 * {
 	font-family: 'Monda', sans-serif; /*DONDA*/
@@ -146,6 +143,8 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 .editPostBackground {
 	background-image: url("https://s3.amazonaws.com/uncoveredpictures/website1.jpg");
 	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
 }
 
 .editAccountBackground {
@@ -154,7 +153,9 @@ font-family: 'Monda', sans-serif; /*DONDA*/
       rgba(0, 0, 0, 0.5)),
 	url("https://s3.amazonaws.com/uncoveredpictures/film.jpg");
 	background-size: cover;
-	text-align: center
+	text-align: center;
+	background-repeat: no-repeat;
+	height: 100vh;
 }
 
 .register {
@@ -163,8 +164,8 @@ font-family: 'Monda', sans-serif; /*DONDA*/
       rgba(0, 0, 0, 0.5)),
 	url("https://s3.amazonaws.com/uncoveredpictures/website2.jpg");
 	background-size: cover;
-/*	height: 50px;
-*/	
+	background-repeat: no-repeat;
+	height: 100vh;
 }
 
 .signUp {
@@ -187,7 +188,7 @@ body {
 }
 
 .fileInput {
-	position: absolute;
+	position: relative;
 	left: 550px;
 }
 
@@ -205,4 +206,8 @@ li {
 	list-style-type: none;
 	position: relative;
 	right: 20px;
+}
+
+img{
+	max-width:100%;
 }

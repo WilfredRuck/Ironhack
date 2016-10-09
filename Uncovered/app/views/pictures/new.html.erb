@@ -12,9 +12,8 @@
 	<%= form_for @picture_entry, text_field: { multipart: true } do |f| %>
 	
 		<%= f.label :image, :class => "white" %> <i class="white">(Image must be JPEG)</i>
-		<div>
+
 			<%= f.file_field :image, :class => "fileInput white" %>
-		</div>
 		
 		<br>
 		<br>
