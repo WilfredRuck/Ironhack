@@ -81,7 +81,8 @@ class PicturesController < ApplicationController
     @post = Picture.find(params[:id])
 
     @post.update(
-                caption: params[:picture][:caption]
+                caption: params[:picture][:caption],
+                location: params[:picture][:location]
                 )
     redirect_to picture_path
   end
