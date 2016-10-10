@@ -36,9 +36,8 @@ class PicturesController < ApplicationController
     # p params[:picture][:image].tempfile.path
     # puts ""
     # puts ""
-    if (params[:picture][:image]) != nil &&
-       (params[:picture][:image]).to_s.include?(".jpg") && 
-       (params[:picture][:image]).to_s.include?(".jpeg")
+    if (params[:picture][:image]) != nil
+       
        
       exifr_result = EXIFR::JPEG.new(params[:picture][:image].tempfile)
       @picture_entry.camera_model = exifr_result.model

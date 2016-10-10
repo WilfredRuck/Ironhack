@@ -100,13 +100,15 @@ font-family: 'Monda', sans-serif; /*DONDA*/
 	color:#428bca;
 }
 
-/*.adjustPicture {
+.adjustPicture {
 	position: relative;
 	right: 15px;
-}*/
+}
 
 .googleMaps {
 	
+	position: fixed;
+	right: 0;
 }
 
 .createPostBackground {
@@ -206,8 +208,4 @@ li {
 	list-style-type: none;
 	position: relative;
 	right: 20px;
-}
-
-img{
-	max-width:100%;
 }
