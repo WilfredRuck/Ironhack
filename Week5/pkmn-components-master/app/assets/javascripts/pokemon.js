@@ -40,6 +40,8 @@ PokemonApp.showPokemonModal = function (result){
 	console.log(`Weight: ${result.weight}`);
 	$(".js-poke-weight").html(result.weight);
 
+
+
 	var x = 0;
 	while (x < result.types.length){
 		console.log(result.types.length)
@@ -65,7 +67,9 @@ PokemonApp.showPokemonModal = function (result){
 
 	console.log(`Speed: ${result.speed}`);
 	$(".js-poke-speed").html(result.speed);
-
+	
+	// console.log('Picture: ${result.image}');
+	// $(".js-poke-image").html(result.image);
 }
 
 PokemonApp.handleError = function (theError){

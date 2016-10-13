@@ -122,6 +122,10 @@
   												  Post Details
   												</button>
 
+  												<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+												  Launch demo modal
+												</button>
+
                           <%= link_to "Like", like_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
                           
                           <span class="js-count-<%= actual_post.id %>"> <%= actual_post.get_upvotes.size %> </span>
@@ -244,7 +248,7 @@
   <script type="text/javascript">
     var locations = [
       ['New York', 40.730610, -73.935242],
-      ['Miami', 25.7617, -80.1918],
+      ['Miami', 25.766238083333334, -80.19605377777778],
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {

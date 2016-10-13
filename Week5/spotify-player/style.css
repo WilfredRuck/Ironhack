@@ -153,3 +153,12 @@ progress::-webkit-progress-value {
 progress::-moz-progress-bar {
   background-color: #45a800;
 }
+
+body {
+  background-image: url("music.jpg");
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  background-size: cover;
+  height: 100vh;
+}
