@@ -123,3 +123,10 @@ Migrating to CreateTasks (20151116214307)
   [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."location" = ?[0m  [["location", "Spain"]]
   [1m[35mUser Load (5.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."location" = ?  [["location", "Spain"]]
   [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = ?[0m  [["user_id", 6]]
+
+
+Started GET "/" for ::1 at 2016-10-13 14:52:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/wilfredruck/.rvm/gems/ruby-2.3.0/gems/railties-4.2.5/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 10ms (Views: 10.1ms | ActiveRecord: 0.0ms)

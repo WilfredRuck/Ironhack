@@ -1,50 +1,50 @@
-<h4>
-	<p>Welcome to Concert Exposure!</p>
-	<p> This website displays concerts happening all around the US.<p>
-	<p> Here are all the concerts happening today: </p>
-</h4>
+	<h4>
+		<p>Welcome to Concert Exposure!</p>
+		<p> This website displays concerts happening all around the US.<p>
+		<p> Here are all the concerts happening today: </p>
+	</h4>
 
-<ul>
-	<% if @concerts_today.length > 0 %>
-		
-		<% @concerts_today.each do |concert| %>
-			<h5> <%= concert.artist%>'s Concert:</h5>
-		
-			<li> Artist: <%= concert.artist %> </li>
-			<li> Venue: <%= concert.venue %> </li>
-			<li> City: <%= concert.city %> </li>
-			<li> Date: <%= concert.date %> </li>
-			<li> Price: <%= concert.price %> </li>
-			<li> Description: <%= concert.description %> </li>
+	<ul>
+		<% if @concerts_today.length > 0 %>
 			
+			<% @concerts_today.each do |concert| %>
+				<h5> <%= concert.artist%>'s Concert:</h5>
+			
+				<li> Artist: <%= concert.artist %> </li>
+				<li> Venue: <%= concert.venue %> </li>
+				<li> City: <%= concert.city %> </li>
+				<li> Date: <%= concert.date %> </li>
+				<li> Price: <%= concert.price %> </li>
+				<li> Description: <%= concert.description %> </li>
+				
+			<% end %>
+
+		<%else%> 
+			<p> <b> THERE ARE NO CONCERTS TODAY! </b> <p> 
 		<% end %>
 
-	<%else%> 
-		<p> <b> THERE ARE NO CONCERTS TODAY! </b> <p> 
-	<% end %>
-
-</ul>
+	</ul>
 
 
-<ul class = "concertsThisMonth">
-	<h3> <b> Concerts This Month </b> </h3>
-	
-	<% if @concerts_this_month.length > 0 %>
+	<ul class = "concertsThisMonth">
+		<h3> <b> Concerts This Month </b> </h3>
 		
-		<% @concerts_this_month.each do |concert| %>
-			<h5> <%= concert.artist%>'s Concert:</h5>
-		
-			<li> Artist: <%= concert.artist %> </li>
-			<li> Venue: <%= concert.venue %> </li>
-			<li> City: <%= concert.city %> </li>
-			<li> Date: <%= concert.date %> </li>
-			<li> Price: <%= concert.price %> </li>
-			<li> Description: <%= concert.description %> </li>
+		<% if @concerts_this_month.length > 0 %>
 			
+			<% @concerts_this_month.each do |concert| %>
+				<h5> <%= concert.artist%>'s Concert:</h5>
+			
+				<li> Artist: <%= concert.artist %> </li>
+				<li> Venue: <%= concert.venue %> </li>
+				<li> City: <%= concert.city %> </li>
+				<li> Date: <%= concert.date %> </li>
+				<li> Price: <%= concert.price %> </li>
+				<li> Description: <%= concert.description %> </li>
+				
+			<% end %>
+
+		<%else%> 
+			<p> <b> THERE ARE NO CONCERTS TODAY! </b> <p> 
 		<% end %>
 
-	<%else%> 
-		<p> <b> THERE ARE NO CONCERTS TODAY! </b> <p> 
-	<% end %>
-
-</ul>
+	</ul>

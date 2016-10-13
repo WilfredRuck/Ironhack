@@ -4,3 +4,10 @@
 	left: 1000px;
 	bottom: -350px;
 }
+
+.bodyBackground {
+	background-image: url("concert.jpg");
+	background-position:center;
+	background-size: cover;
+	color:white;
+}
