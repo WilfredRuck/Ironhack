@@ -1,48 +1,48 @@
-			<p style="color:skyblue"> <b> Welcome <%= current_user.username %>! <b> </p>
-    	
-    	
-		
-		
+      <p style="color:skyblue"> <b> Welcome <%= current_user.username %>! <b> </p>
+      
+      
+    
+    
 
-			<% if current_user.role == "admin" %>
-					
+      <% if current_user.role == "admin" %>
+          
 
-				<center> <h2 style = "color:red"> VIEWING AS ADMIN </h2> 
+        <center> <h2 style = "color:red"> VIEWING AS ADMIN </h2> 
 
-		
-				<% users_posts = [] %>
-				
-				<% @users.each do |user|%>
-						
-					<% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
-						
-						<%users_posts.push post%>
+    
+        <% users_posts = [] %>
+        
+        <% @users.each do |user|%>
+            
+          <% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+            
+            <%users_posts.push post%>
 
-					<%end%>
-				<%end%>
+          <%end%>
+        <%end%>
 
-					<h3 class="white"> ALL POSTS: </h3>
-					</center>	
-						<%update = []%>
-					
-						<% users_posts.each do |ordered_post|%>
-							<%update.push ordered_post%>
+          <h3 class="white"> ALL POSTS: </h3>
+          </center> 
+            <%update = []%>
+          
+            <% users_posts.each do |ordered_post|%>
+              <%update.push ordered_post%>
 
-							
-						<%end%>
+              
+            <%end%>
 
-						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
-								<div class = "nobr white">
-									<p> This post belongs to 
-										<%= link_to "#{User.find(actual_post.user_id).username}", 
-													"/pictures/#{actual_post.user_id}" %> 
-									</p>
-									
-									<p> Caption: <%= actual_post.caption%> </p>
+            <%update.sort_by(&:created_at).reverse.each do |actual_post|%>
+                <div class = "nobr white">
+                  <p> This post belongs to 
+                    <%= link_to "#{User.find(actual_post.user_id).username}", 
+                          "/pictures/#{actual_post.user_id}" %> 
+                  </p>
+                  
+                  <p> Caption: <%= actual_post.caption%> </p>
 
-									<p> Location: <%= actual_post.location%> </p>
-								
-									<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
+                  <p> Location: <%= actual_post.location%> </p>
+                
+                  <p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
                   
                   <% if actual_post.camera_model != nil %>
                     <p> Model: <%= actual_post.camera_model %> </p>
@@ -61,70 +61,68 @@
                     <span class="js-count-<%= actual_post.id %>"> <%= actual_post.get_upvotes.size %> </span>
 
                     <%= link_to "Unlike", dislike_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
-								
-									<br>
-									<br>
-									 <%= image_tag actual_post.image.url(:regular) %>
-									 <br>
-								 	<br>
+                
+                  <br>
+                  <br>
+                   <%= image_tag actual_post.image.url(:regular) %>
+                   <br>
+                  <br>
 
-								</div>
-						<%end%>
-
-
+                </div>
+            <%end%>
 
 
 
-			
+
+
+      
 <%else%>
-			
-				<% users_posts = [] %>
-				
-				<% @users.each do |user|%>
-						
-					<% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
-						
-						<%users_posts.push post%>
+      
+        <% users_posts = [] %>
+        
+        <% @users.each do |user|%>
+            
+          <% user.pictures.each do |post| %> <!-- ORDERS BY TIME USER ACCOUNT WAS CREATED -->
+            
+            <%users_posts.push post%>
 
-					<%end%>
-				<%end%>
+          <%end%>
+        <%end%>
 
-						<%update = []%>
+            <%update = []%>
 
-						<% users_posts.each do |ordered_post|%>
-							<%update.push ordered_post%>
-							
-							
-						<%end%>
-						
+            <% users_posts.each do |ordered_post|%>
+              <%update.push ordered_post%>
+              
+              
+            <%end%>
+            
 
-	<div class = "container">
-		<div class = "row">
-			
-			
-			
-			<div class = "col-sm-6">
-				<% collapse_counter = 0 %>
-				<% modal_counter = 1000 %>
+  <div class = "container">
+    <div class = "row">
+      
+      
+      
+      <div class = "col-sm-6">
+        <% collapse_counter = 0 %>
+        <% modal_counter = 1000 %>
         <h3 class="white centerThis"> All Posts: </h3>
-						<%update.sort_by(&:created_at).reverse.each do |actual_post|%>
-							
+            <%update.sort_by(&:created_at).reverse.each do |actual_post|%>
+              
 
-							
-								<div class = "row homePosts">
-									<div class = "col-sm-12 centerThis">
-									
-											
-										    
-											 <p class="adjustPicture"> <%= image_tag actual_post.image.url(:large), :class => "unCenter" %> </p>
+              
+                <div class = "row homePosts">
+                  <div class = "col-sm-12 centerThis">
+                  
+                      
+                        
+                       <p class="adjustPicture"> <%= image_tag actual_post.image.url(:large), :class => "unCenter" %> </p>
                        
-  												<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#<%= collapse_counter%>" aria-expanded="false" aria-controls="collapseExample">
-  												  Post Details
-  												</button>
+                          <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#<%= collapse_counter%>" aria-expanded="false" aria-controls="collapseExample">
+                            Post Details
+                          </button>
 
-  												<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-												  Launch demo modal
-												</button>
+                          
 
                           <%= link_to "Like", like_picture_path(actual_post), method: :put, remote: true, class: "js-update-number" %>
                           
@@ -134,50 +132,78 @@
 
                      
 
-												
+                        
 
-												<!-- 	---------------------------------------------MODAL-------------------------------------
+                        <!--  ---------------------------------------------MODAL-------------------------------------
  -->
-												<div class="modal fade <%=modal_counter%>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  		
-  													<div class="modal-dialog modal-lg" role="document">
-    													<div class="modal-content"> 
-    														<h4 class="modal-title" id="myModalLabel"> Post Details </h4>
+                        <div class="modal fade <%=modal_counter%>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      
+                            <div class="modal-dialog modal-lg" role="document">
+                              <div class="modal-content"> 
+                                <h4 class="modal-title" id="myModalLabel"> Post Details </h4>
 
-    														<div class="row">
-																
-																<div class="col-sm-6"> 
-																	<p> This post belongs to <%=User.find(actual_post.user_id).username %> </p>
-												    				<p> Caption: <%= actual_post.caption%> </p>
-										
-																	<p> Location: <%= actual_post.location%> </p>
-										
-																	<p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %>
-													
-									 							
-																</div>
-																
-																<div class="col-sm-6">
-																<%= image_tag actual_post.image.url(:regular) %>
-																</div>
+                                <div class="row">
+                                
+                                <div class="col-sm-6"> 
+                                  <p> User: <%=User.find(actual_post.user_id).username.capitalize %>
+                          
+                                  <p> Caption: <%= actual_post.caption%> </p>
 
-															</div>
-										    			</div>
-										  			</div>
-												</div>
+                                  <%if actual_post.has_geo == false%>
+
+                                    <p> Location: <%= actual_post.location%> </p>
+
+                                  <%end%>
+                        
+                                  <p> Created: <%= actual_post.created_at.strftime("%b. %d, %Y") %> </p>
+                          
+                                  <% if actual_post.camera_model != nil %>
+                                  
+                                    <p> Model: <%= actual_post.camera_model %> </p>
+                                  
+                                  <%else%>
+                                  
+                                    <p> Model: Unknown </p>
+                                  
+                                  <%end%>
+
+                                  
+                                  <%if actual_post.has_geo == true%>
+                                  
+                                    <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> </p>
+                                  
+                                  <%end%>
+
+                                  <%if User.find(actual_post.user_id) == current_user%>
+                                    <%= button_to "Edit Post", edit_picture_path(actual_post), :class => "btn btn-primary btn-xs", 
+                                      :method => :get
+                                    %>
+                                  <%end%>
+                          
+                                
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                <%= image_tag actual_post.image.url(:regular) %>
+                                </div>
+
+                              </div>
+                              </div>
+                            </div>
+                        </div>
 
 
 
-<!--  		----------------------------------END-------------------------------------------------------------
+<!--      ----------------------------------END-------------------------------------------------------------
  -->
 
-												<!-- COLLAPSE WELL WITH POST INFORMATION -->
-												<div class="collapse" id="<%= collapse_counter%>">
-												  <div class="well">
-													
-													<% @pic = actual_post.image%>
-												  <p> User: <%=User.find(actual_post.user_id).username.capitalize %>
-												  
+                        <!-- COLLAPSE WELL WITH POST INFORMATION -->
+                        <div class="collapse" id="<%= collapse_counter%>">
+                          <div class="well">
+                          
+                          <% @pic = actual_post.image%>
+                          <p> User: <%=User.find(actual_post.user_id).username.capitalize %>
+                          
                           <p> Caption: <%= actual_post.caption%> </p>
 
                           <%if actual_post.has_geo == false%>
@@ -200,88 +226,82 @@
 
                           
                           <%if actual_post.has_geo == true%>
-                          
+                            
                             <p> Location: <%=actual_post.latitude%>, <%=actual_post.longitude%> </p>
-                          
+
                           <%end%>
 
-													<%if User.find(actual_post.user_id) == current_user%>
-														<%= button_to "Edit Post", edit_picture_path(actual_post), :class => "btn btn-primary btn-xs", 
-															:method => :get
-		                        						%>
-									 				<%end%>
-											
-												  </div> <!-- POST INFORMATION -->
-												</div> <!-- BUTTON FOR POST INFORMATION -->
-									
-												<%collapse_counter+=1%>
-												<%modal_counter+=1%>
-											 
-									</div> 
-								</div>
-							<br> 
-							<br>
-							<br> 
-							<br>
-						<%end%>
+                          <%if User.find(actual_post.user_id) == current_user%>
+                            <%= button_to "Edit Post", edit_picture_path(actual_post), :class => "btn btn-primary btn-xs", 
+                              :method => :get
+                                        %>
+                          <%end%>
+                      
+                          </div> <!-- POST INFORMATION -->
+                        </div> <!-- BUTTON FOR POST INFORMATION -->
+                  
+                        <%collapse_counter+=1%>
+                        <%modal_counter+=1%>
+                       
+                  </div> 
+                </div>
+              <br> 
+              <br>
+              <br> 
+              <br>
+            <%end%>
 
-			</div>	<!-- COLUMN OUT -->	
+      </div>  <!-- COLUMN OUT --> 
 
       
 
-			<div class = "col-sm-6 googleMaps">
-				
-       <h3 class="white realignGoogleM"> Google Maps: </h3>
-				<!-- -------------------GOOGLE MAPS------------------ -->
+      <div class = "col-sm-6 googleMaps">
+        
+       <h3 class="white realignGoogleM centerThis"> Google Maps: </h3>
+        <!-- -------------------GOOGLE MAPS------------------ -->
 
-					<!DOCTYPE html>
-<html class="centerThis"> 
 
-<head> 
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
-  <title>Google Maps Multiple Markers</title> 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCggVvOcsR1sYS8E6aNPSZfKOjBYntPEUE" type="text/javascript"></script>
-</head> 
-<body>
-  <div id="map" style="width: 500px; height: 545px;"></div>
+ <div id="map" style="width: 530px; height: 545px; "></div>
 
-  <script type="text/javascript">
-    var locations = [
-      ['New York', 40.730610, -73.935242],
-      ['Miami', 25.766238083333334, -80.19605377777778],
-    ];
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: new google.maps.LatLng(37.0902, -75.7129),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+                                <script type="text/javascript">
+                                  var locations = [
+                                    ['New York', 40.730610, -73.935242],
+                                    ['Wynwood Art', 25.800134583333335, -80.2001903888889]
+                                  ];
 
-    var infowindow = new google.maps.InfoWindow();
+                                  var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 3,
+                                    center: new google.maps.LatLng(37.0902, -75.7129),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                  });
+                                  google.maps.event.trigger(map, 'resize');
 
-    var marker, i;
+                                  var infowindow = new google.maps.InfoWindow();
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+                                  var marker, i;
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-  </script>
-</body>
-</html>
-					
+                                  for (i = 0; i < locations.length; i++) {  
+                                    marker = new google.maps.Marker({
+                                      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                      map: map
+                                    });
 
-			</div>	<!-- -------------------END---------------------- -->
+                                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                      return function() {
+                                        infowindow.setContent(locations[i][0]);
+                                        infowindow.open(map, marker);
+                                      }
+                                    })(marker, i));
+                                  }
 
-		</div> <!-- ROW OUT
+                                </script>
+    
+          
+
+      </div>  <!-- -------------------END---------------------- -->
+
+    </div> <!-- ROW OUT
     </div> <! CONTAINER OUT -->
 
 
