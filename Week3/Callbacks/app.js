@@ -35,7 +35,7 @@ fs.readFile("lib/movies1.txt","utf8", function (theError, movieFileContents) {
 
 function shout () {
 	console.log("You a bum");
-}
+}gnsa
 
 function shout2 () {
 	console.log("YOU DON'T KNOW YA NAME!?");
